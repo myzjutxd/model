@@ -1,0 +1,104 @@
+<layout name="Public/index" />
+<div class="main">
+
+	<div class="mt6 user">
+		<include file="left" />
+		<div class="right">
+			<form method="post" action="addtixian">
+				<div class="bankst mt">
+					提现申请
+				</div>
+
+				<table width="630" cellspacing="0" cellpadding="0" border="0">
+
+					<tbody>
+						<tr>
+							<td width="92" height="28" align="right">用 户 名： </td>
+							<td width="538">{$info.username}</td>
+						</tr>
+
+						<tr>
+							<td height="28" align="right">可提现金额： </td>
+							<td> ￥<strong class="price"> {$info.balance} </strong>元</td>
+						</tr>
+						<tr>
+							<td height="28" align="right">提现金额： </td>
+							<td>
+							<input  id="money" class="input m" name="money" value="0">
+							元</td>
+						</tr>
+						<tr>
+							<td height="28" align="right">银行全称： </td>
+							<td>
+							<input id="bankName" name="bankName" class="input" value="">
+							</td>
+						</tr>
+
+						<tr>
+							<td height="28" align="right">银行账号： </td>
+							<td>
+							<input id="bankcode" class="input" name="bankcode" value="">
+							</td>
+						</tr>
+
+						<tr>
+							<td height="28" align="right">账号姓名： </td>
+							<td>
+							<input id="realName" class="input m" name="realName" value="">
+							</td>
+						</tr>
+
+						<tr>
+							<td align="right">备注： </td>
+							<td>							<textarea id="content" rows="4" cols="36" name="content"></textarea></td>
+						</tr>
+						<tr>
+							<td height="43" align="right"></td>
+							<td>
+							<input type="submit" class="regbtninput" value="确认申请">
+							</td>
+						</tr>
+
+
+					</tbody>
+				</table>
+			</form>
+
+			<div class="clear"></div>
+
+			<div class="bankst mt">
+				提现记录
+			</div>
+
+			<style>
+				td {
+					background: #FFF
+				}
+			</style>
+			<table width="100%" cellspacing="1" cellpadding="0" border="0" style="background:#ececec">
+				<tbody>
+					<tr>
+						<td align="center">序号</td>
+						<td align="center">提现金额</td>
+						<td align="center">银行</td>
+						<td align="center">账号</td>
+						<td align="center">姓名</td>
+						<td align="center">时间</td>
+						<td align="center">状态</td>
+
+					</tr>
+				</tbody>
+			</table>
+
+			<br>
+			<br>
+			<br>
+			<br>
+
+		</div>
+
+		<div class="clear"></div>
+
+	</div>
+
+</div>

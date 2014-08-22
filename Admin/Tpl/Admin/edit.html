@@ -1,0 +1,81 @@
+<include file="Public/header" />
+<body>
+<table cellspacing="1" cellpadding="0" class="table_form">
+    <caption>
+        管理员设置
+    </caption>
+</table>
+<form onsubmit="return ManAger();" name="myform" method="post" action="./edit">
+    <table cellspacing="1" cellpadding="0" class="table_form">
+        <input name="id" value="{$admin.id}" type="hidden"/>
+        <caption>添加管理员</caption>
+        <tbody><tr>
+            <th width="20%"><strong>用户名</strong></th>
+            <td width="80%">
+                <input type="text" size="20" value="{$admin.username}" id="UserName" name="username" class="input_blur">
+                <font color="#FF0000">*</font></td>
+        </tr>
+        <tr>
+            <th><strong>密码</strong></th>
+            <td><input type="password" size="20" value="{$admin.password}" id="PassWord" name="password" class="input_blur">
+                <font color="#FF0000">*</font></td>
+        </tr>
+        <tr>
+            <th><strong>重复密码</strong></th>
+            <td><input type="password" size="20" value="" id="PassWord2" name="password2" class="input_blur">
+                <font color="#FF0000">*</font></td>
+        </tr>
+        <tr>
+            <th><strong>锁定帐号</strong></th>
+            <td><input type="radio" value="1" name="islocked" class="radio_style">
+                是
+                <input type="radio" checked="" value="0" name="islocked" class="radio_style">
+                否</td>
+        </tr>
+        <tr>
+            <th><strong>姓名</strong></th>
+            <td><input type="text" size="20" value="{$admin.realname}" id="RealName" name="realname" class="input_blur">
+                <font color="#FF0000">*</font></td>
+        </tr>
+        <tr>
+            <th><strong>联系QQ</strong></th>
+            <td><input type="text" size="20" value="{$admin.qq}" id="QQ" name="qq" class="input_blur"></td>
+        </tr>
+        <tr>
+            <th><strong>联系电话</strong></th>
+            <td><input type="text" size="20" value="{$admin.tel}" id="Tel" name="tel" class="input_blur">
+                <font color="#FF0000">*</font></td>
+        </tr>
+        <tr>
+            <th><strong>备注</strong></th>
+            <td><textarea id="Intro" rows="5" cols="50" name="intre">{$vo.intro}</textarea></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>
+                <input type="submit" value=" 提交 " name="dosubmit" class="button_style">
+                &nbsp;
+                &nbsp; <input type="button" onclick="history.back()" value="返回上一页" class="button_style">
+
+
+            </td>
+        </tr>
+        </tbody></table>
+</form>
+
+
+<script type="text/javascript">
+    function chang(val)
+    {
+        if(val=="1")
+        {
+            $('#AdminRole').css({"display":"block"});
+        }
+        else
+        {
+            $('#AdminRole').css({"display":"none"});
+        }
+    }
+
+</script>
+</body></html>

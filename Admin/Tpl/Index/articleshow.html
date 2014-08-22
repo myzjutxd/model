@@ -1,0 +1,70 @@
+<layout name="Public/index" />
+<div class="main ">
+<div class="shownav mt6">
+		{$locate} 
+        </div>
+     	 
+ 	  <div class="detailinfo mt">
+     	<div  class="h">{$article.ClassName}</div>
+     	<div class="c">
+     <div class="zstart-aux">
+  <div class="zstart-cols">
+    <div class="zstart-col-01">
+      <div class="tab-content">    
+      
+      <div class="newscon">
+            	<h1>{$article.Title}</h1>
+                <div class="times">来源：{$article.From}&nbsp;&nbsp;编辑：{$article.Editor} &nbsp;&nbsp;发表时间：{$article.UpdateTime}</div>
+                   
+
+
+                
+                <div class="connn" id="connn">
+                摘要：{$article.CuteCon}......<br /><br />
+
+
+               {$article.Content}
+                
+                
+                </div>
+                <div class="xianguang">
+                	<div class="xianguang_title">相关链接</div>
+                	<ul>
+                    	 
+                    <volist name="articlelist" id="vo">
+                    	<li><a href="articleshow?id={$vo.Id}">{$vo.Title}</a></li>
+                  </volist>
+                    
+                   
+                    
+                    
+                    </ul>
+                	<div class="clear"></div>
+                </div>
+            
+            
+            </div>  
+         </div>
+      
+       
+       </div>
+    <div class="zstart-col-04">
+
+
+
+
+						<div class="wiget-title clearfix">
+							<h2>最新文章</h2>
+						</div>
+						<div class="wiget-box">
+							<include file="narticle" />
+						</div>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

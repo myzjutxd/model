@@ -1,0 +1,563 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+
+<title>修改基本资料</title>
+<link href="../Common/css/css.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../Common/js/jquery.min.js?v=1.0"></script>
+<script type="text/javascript" src="../Common/js/aimm.main.js?v=1.0"></script>
+<script type="text/javascript" src="../Common/js/slides.min.jquery.js?v=1.0"></script>
+<script type="text/javascript" src="../Common/js/Calendar/WdatePicker.js"></script>
+ <script src="../Common/js/user/Validator.js" ></script>
+</head>
+
+<body>
+<div class="main">
+	<div class="logo"><a href="/"><img src="/images/logo.png" /></a></div>
+    <div class="toprrr">
+    <div class="top_r"><a href="http://www.dymtw.com" target="_blank">模特新闻</a> | <a  href='#' onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://mm.dymtw.com');">设为首页</a> | <a href="/user/index.asp">用户中心</a> | <a href="/user/logout.asp">安全退出</a></div>
+<p><strong><span style="color: #ff0000">(临时)客服电话：15958150818 阿力</span></strong></p> 
+    <div class="shearch">
+        <form action="/search.asp" method="post">
+        <div class="searchtxt"><input type="text" name="keyword" value="输入模特名字" onclick="if(this.value=='输入模特名字'){ this.value=''}"  onblur="if(this.value==''){this.value='输入模特名字'}" /></div>
+        <div class="searchbtn"><input type="submit"  value=" "  /></div>
+        </form>
+        
+        </div>
+      </div>
+    
+    <div class="clear"></div>
+    
+</div>
+
+<!-- dd menu -->
+<script type="text/javascript">
+<!--
+var timeout         = 500;
+var closetimer		= 0;
+var ddmenuitem      = 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose; 
+// -->
+</script>
+
+
+<div class="menu">
+    <div class="main">
+    	<ul id="sddm"><li><a href="/" >网站首页</a><span></span></li>
+        <li><a href="/model.asp" onmouseover="mopen('m1')" onmouseout="mclosetime()" >模特展示 ↓</a>
+        <div id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+		
+        <a href="/model.asp?cid=1">淘女郎VIP</a>
+        
+        <a href="/model.asp?cid=2">淘宝男模</a>
+        
+        <a href="/model.asp?cid=3">外籍女模</a>
+        
+        <a href="/model.asp?cid=4">外籍男模</a>
+        
+        <a href="/model.asp?cid=5">儿童模特</a>
+        
+        <a href="/model.asp?cid=6">大龄模特</a>
+        
+		</div>
+        <span></span></li>
+        <li><a href="/search.asp" onmouseover="mopen('m2')" onmouseout="mclosetime()" >高级搜索 ↓</a>
+         <div id="m2" onmouseover="mcancelclosetime()" onmouseout="mclosetime()" >
+		 
+    <a  href="/search.asp?ModelTypeid=1"  >淘女郎VIP</a>    
+	
+    <a  href="/search.asp?ModelTypeid=2"  >淘宝男模</a>    
+	
+    <a  href="/search.asp?ModelTypeid=3"  >外籍女模</a>    
+	
+    <a  href="/search.asp?ModelTypeid=4"  >外籍男模</a>    
+	
+    <a  href="/search.asp?ModelTypeid=5"  >儿童模特</a>    
+	
+    <a  href="/search.asp?ModelTypeid=6"  >大龄模特</a>    
+	
+		</div>
+        <span></span></li>
+        <li><a href="/article.asp" onmouseover="mopen('m3')" onmouseout="mclosetime()" >模特学院 ↓</a>
+         <div id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+         
+             <a href="article.asp?cid=1" >模特知识</a> 
+             
+             <a href="article.asp?cid=2" >行业规则</a> 
+             
+             <a href="article.asp?cid=3" >摄影技巧</a> 
+             
+	 
+		</div>
+        
+        <span></span></li>
+        <li><a href="#">拼单平台</a>
+        <span></span></li>
+        <li><a href="#" target="_blank">摄影机构</a></li>
+        <span></span></li>
+        <li><a href="http://mm.dymtw.com/help.asp?id=70" target="_blank">媒体报道</a></li>
+        
+        </ul>
+        
+        
+   
+        
+	</div>
+    
+       
+    
+</div>
+<div class="menuruur">
+
+  
+ 
+    <div class="menulogin1"><a href="/user/index.asp">模特库测试企业</a></div>
+    <div class="linspan">|</div>
+    <div class="menulogin2"><a href="/user/order.asp">订单信息</a></div> 
+  
+</div>
+<link rel="stylesheet" href="../Common/css/ShowDialog.css" type="text/css" /> 
+<script src="../Common/js/ShowDialog.js"></script>
+
+
+<style>
+	.cityshot{ font-family:Arial,"微软雅黑";font-size:12px ;border:1px solid #999 ; padding: 12px; width:934px; margin:0 auto ;line-height:18px !important; border-top:2px solid #C00}
+	.cityshot span{ display:inline-block; margin:0 12px; }
+	.citysh_r{ float:right; width:880px; }
+	.citysh_l{ float:left; width:48px;  background:url(images/cityshot.jpg) no-repeat right 6px; font-weight:bold; color:#C00}
+</style>
+<div class="cityshot">
+<div class="citysh_l">
+热门<br>
+城市
+</div>
+<div class="citysh_r">
+    <span><a href="http://mm.dymtw.com" title="这里已经是杭州站"><u>杭州</u></a></span>|<span><a href="http://gz.dymtw.com" target="_blank" title="进入广州站看看">广州</a></span>|<span><a href="http://sh.dymtw.com" target="_blank" title="进入上海站看看">上海</a></span>|<span>北京</span>|<span>成都</span>|<span>深圳</span>|<span>厦门</span>|<span>南京</span>|<span>温州</span>|<span>宁波</span>|<span>武汉</span>|<span>重庆</span>|<span>大连</span>|<span>青岛</span>|<span>苏州</span>|<span>合肥</span>|<span>天津</span><br>
+    <span>长沙</span>|<span> 郑州</span>|<span>济南</span>|<span>西安</span>|<span>福州</span>|<span>昆明</span>|<span> 南宁</span>|<span>南昌</span>|<span>无锡</span>|<span>东莞</span>|<span>长春</span>|<span>沈阳</span>|<span>石家庄</span>|<span>哈尔滨</span>|<span>义乌</span> <span>更多>></span>
+</div>
+<div class="clear"></div>
+</div>
+
+
+ 
+<div class="main">
+   
+     <div class="mt6 user">
+    	<div class="left">
+	<div class="h">企业中心</div>
+    <ul>
+    	 <li>
+        	<a href="/user/index.asp">会员首页</a>&nbsp;&nbsp;&nbsp;<a href="/show.asp?userid=366" target="_blank">预览</a>
+         </li>
+         
+          <li>
+        	<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1113810581&site=qq&menu=yes" style="color:#C00">我要托管</a>
+         </li>
+
+          <li>
+        	<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=826102150&site=qq&menu=yes" style="color:#d00">联系客服</a>
+         </li>
+         
+         <li><a href="#">企业资料</a><a href="#" class="add"></a></li>
+          <li class="ss">
+          <a href="info.asp">基本资料</a> 
+          <a href="password.asp">修改密码</a>
+		  
+          <a href="headpic.asp">头像修改</a> 
+          <a href="showmodel.asp">展示详情</a></li>
+
+ <li>
+        	<a href="/user/album.asp">作品管理</a>&nbsp;&nbsp;&nbsp;<a href="/album.asp?userid=366" target="_blank">预览</a>
+          
+          <li><a href="#">交易管理</a><a href="#" class="add"></a></li>
+          <li class="ss">
+            <a href="order.asp">订单管理</a> 
+          
+          <a href="comment.asp">评价管理</a>  
+          <a href="pay.asp">在线充值</a>
+          <a href="tixian.asp">提现</a>
+          </li>
+           
+         <li>
+        	<a href="/user/logout.asp">安全退出</a>
+         </li>
+    <li class="ss"> </li>
+    <li class="ss"> </li>
+    
+    </ul>
+    
+
+</div> 
+       	<div class="right">
+        	 <div class="h">修改基本资料</div>
+        	<div class="con">
+         <form action="action.asp" method="post" name="myform"  onSubmit="return Validator.Validate(this,3)">    
+            <table width="640" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="78" align="right">用 户 名：</td>
+    <td width="562">模特库测试企业</td>
+  </tr>
+  <tr>
+    <td align="right">公司名称：</td>
+    <td><input type="text" class="input" name="CompanyName" value="模特库测试企业" /></td>
+  </tr>
+  
+   <tr>
+    <td align="right"> 负责人姓名：</td>
+    <td><input type="text" class="input" name="realName" value="徐栋" /></td>
+  </tr>
+  
+    <tr style='display:none'>
+    <td align="right">生  日：</td>
+    <td><input type="text" class="input" name="birthday" value="2013-8-3 22:21:26"  onFocus="WdatePicker({isShowClear:false,readOnly:true,dateFmt:'yyyy-MM-dd'})" readonly="readonly" /></td>
+  </tr>
+     <tr>
+    <td align="right">所在城市：</td>
+    <td> <script type="text/javascript" src="../Common/js/city.js"></script>
+                        <SELECT id="sort_one"  name="proid"  onChange="changelocation(document.myform.sort_one.options[document.myform.sort_one.selectedIndex].value)">
+          
+         
+          <option value="1">北京市</option>
+          
+          <option value="2">天津市</option>
+          
+          <option value="3">上海市</option>
+          
+          <option value="4">重庆市</option>
+          
+          <option value="5">黑龙江</option>
+          
+          <option value="6">吉林省</option>
+          
+          <option value="7">辽宁省</option>
+          
+          <option value="8">青海省</option>
+          
+          <option value="9">甘肃省</option>
+          
+          <option value="10">陕西省</option>
+          
+          <option value="11">西藏</option>
+          
+          <option value="12">内蒙古</option>
+          
+          <option value="13">新疆</option>
+          
+          <option value="14">宁夏</option>
+          
+          <option value="15">广西</option>
+          
+          <option value="16">四川省</option>
+          
+          <option value="17">贵州省</option>
+          
+          <option value="18">云南省</option>
+          
+          <option value="19">广东省</option>
+          
+          <option value="20">福建省</option>
+          
+          <option value="21">湖南省</option>
+          
+          <option value="22">江西省</option>
+          
+          <option value="23">湖北省</option>
+          
+          <option value="24">浙江省</option>
+          
+          <option value="25">江苏省</option>
+          
+          <option value="26">河南省</option>
+          
+          <option value="27">河北省</option>
+          
+          <option value="28">山东省</option>
+          
+          <option value="29">山西省</option>
+          
+          <option value="30">海南省</option>
+          
+          <option value="31">安徽省</option>
+          
+        </select>
+        <SELECT id="sort_two"   dataType="Number" msg="请选择城市"  onChange="changelocation2(document.myform.sort_two.options[document.myform.sort_two.selectedIndex].value)"  name="cityid"><option value="">选择城市</option>
+        </SELECT>
+        <SELECT id="sort_tree" name="areaid"  dataType="Number" msg="请选择区域">
+        	<option value="">选择区域</option>
+          
+        </SELECT>
+        <script>
+       function selected(id,val){
+							for(var i=0;i<document.getElementById(id).options.length;i++)
+							{
+								if(document.getElementById(id).options[i].value == val)
+								{
+									document.getElementById(id).options[i].selected=true;
+									break;
+								}
+							}
+						
+						}
+						
+						
+						
+						
+						
+						
+						
+						
+	 selected("sort_one",24)
+    changelocation(24);
+    selected("sort_two",34)
+	changelocation2(34);
+     selected("sort_tree",0)
+    
+    
+    </script>
+                        </td>
+  </tr>
+  <tr>
+                        <td  align="right">联系地址： </td>
+                        <td  ><input id="Address" value="" name="Address"  class="input"  /></td>
+                      </tr>
+  
+ <tr>
+  <td align="right">主营：</td>
+    <td><input type="text" class="input" name="Business" value="" /></td>
+  </tr> 
+  <tr>
+  <td align="right">人数：</td>
+    <td><input type="text" class="input" name="EmployeeNum" value="10" /></td>
+  </tr>
+  
+  <tr>
+ <td align="right">传真号码：</td>
+    <td><input type="text" class="input" name="Fax" value="" /></td>
+  </tr>
+  
+  
+ 
+  
+  <tr>
+ <td align="right">电话号码：</td>
+    <td><input type="text" class="input" name="Phone" value="" /></td>
+  </tr>
+    <tr>
+   <td align="right">旺旺：</td>
+    <td><input type="text" class="input" name="wangwang" value="" /></td>
+  </tr>
+   <tr>
+   <td align="right">QQ：</td>
+    <td><input type="text" class="input" name="QQ" value="22829608" /></td>
+  </tr>
+    <tr>
+   <td align="right">手机号码：</td>
+    <td><input type="text" class="input" name="mobile" value="18667189856" /></td>
+  </tr>
+    <tr>
+    <td align="right">电子邮箱：</td>
+    <td><input type="text" class="input" name="email" value="thomaspaine.xd@gmail.com" /></td>
+  </tr>
+    
+    <tr>
+    <td align="right"></td>
+    <td><input type="submit" class="regbtninput"  value="确定修改"/></td>
+  </tr>
+  
+   <input type="hidden" name="action" value="baseinfo" />
+</table></form><br />
+<br />
+<br />
+<br />
+
+ 
+            
+            
+            
+          </div>
+        	 
+        
+        
+       </div>
+        <div class="clear"></div>
+         
+         
+    </div>
+ 
+
+</div>
+
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=7&amp;pos=left&amp;uid=701488" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static../Common/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!-- Baidu Button END -->
+<div class="main">
+	<div class="webinfo mt">
+    	<div class="webn">
+        
+        
+			
+			<div class="s_1"></div>
+			<div class="s_con">
+				<div class="s_title">关于网站</div>
+				<div class="s_item">
+                
+				<a href="help.asp?id=41">前言</a><br />
+ 
+				<a href="help.asp?id=42">关于本平台</a><br />
+ 
+				<a href="help.asp?id=43">关于第一模特网</a><br />
+ 
+				<a href="help.asp?id=70">媒体报道</a><br />
+ 				  
+				</div>
+			
+			
+			</div> 
+			
+			
+			<div class="s_2"></div>
+			<div class="s_con">
+				<div class="s_title">会员注册</div>
+				<div class="s_item">
+                
+				<a href="help.asp?id=49">模特注册</a><br />
+ 
+				<a href="help.asp?id=51">机构注册</a><br />
+ 
+				<a href="help.asp?id=50">粉丝团注册</a><br />
+ 				  
+				</div>
+			
+			
+			</div> 
+			
+			
+			<div class="s_3"></div>
+			<div class="s_con">
+				<div class="s_title">关于使用</div>
+				<div class="s_item">
+                
+				<a href="help.asp?id=47">功能说明</a><br />
+ 
+				<a href="help.asp?id=52">法律声明</a><br />
+ 
+				<a href="help.asp?id=48">隐私条款</a><br />
+ 				  
+				</div>
+			
+			
+			</div> 
+			
+			
+			<div class="s_4"></div>
+			<div class="s_con">
+				<div class="s_title">关于合作</div>
+				<div class="s_item">
+                
+				<a href="help.asp?id=45">资源合作</a><br />
+ 
+				<a href="help.asp?id=46">连锁加盟</a><br />
+ 
+				<a href="help.asp?id=44">资本合作</a><br />
+ 				  
+				</div>
+			
+			
+			</div> 
+			
+			
+			<div class="s_5"></div>
+			<div class="s_con">
+				<div class="s_title">联系我们</div>
+				<div class="s_item">
+                
+				<a href="help.asp?id=69">加入我们</a><br />
+ 
+				<a href="help.asp?id=53">联系方式</a><br />
+ 
+				<a href="help.asp?id=54">客户咨询</a><br />
+ 				  
+				</div>
+			
+			
+			</div> 
+			
+        
+        
+      
+        </div>
+      
+      <div class="clear"></div>
+     
+    </div>
+
+
+</div>
+
+
+<!--<div class="ourlinks">
+	<div class=" main">
+    <a href="/">关于我们</a> | <a href="/">模特加盟</a> | <a href="/">机构入驻</a> | <a href="/">约片拍摄</a> | <a href="/">会员充值</a> | <a href="/">连锁加盟</a> | <a href="/">资源合作</a> | <a href="/">资本合作</a> | <a href="/">关注我们</a> | <a href="/">联系我们</a>
+    
+    </div>
+</div>-->
+<div class="foot">
+职业平面模特网——第一模特网倾情打造的国内首家职业平面模特平台，每位上线的模特都经过严格的考核<br />
+Copyright &copy; 2013 职业平面模特网|第一模特网 版权所有  浙ICP备12009898号-1<script src="http://s94.cnzz.com/stat.php?id=4100147&web_id=4100147&show=pic1" language="JavaScript"></script>
+
+<!--QQ客服-->
+<link href="css/kf.css?v=111" rel="stylesheet" type="text/css" />
+<script src="kf.asp"  type="text/javascript"></script>
+
+
+
+
+
+</body>
+</html>

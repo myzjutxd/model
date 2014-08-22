@@ -1,0 +1,28 @@
+
+<ul class="widget-posts-thumbnail">
+
+
+
+<volist name="narticlelist" id="vo">
+								<li class="clearfix">
+									<div class="widget-thumb">
+										<a class="" href="articleshow?id={$vo.Id}"> <img
+											src="{$vo.ImgUrl}"
+											alt="{$vo.Title}" class="widget-thumb" width="90" />
+										</a>
+									</div> <a href="articleshow?id={$vo.Id}" class="widget-thumb-title"
+									target="_blank"><?php
+                                    $a=$vo["Title"];
+                                    $abstruct=strip_tags($a); 
+                                    echo mb_substr($abstruct,0,14,"UTF-8")."...";
+                                    ?></a>
+									<div class="widget-info">
+										<span class="new_time"><i class="icon-time"></i>{$vo.UpdateTime|date="Y-m-d",###}</span>
+									</div>
+									<div class="clear"></div>
+								</li>
+
+
+							
+</volist>
+</ul>

@@ -1,0 +1,330 @@
+<layout name="Public/index" />
+<link href="./Common/css/show.css" type="text/css" rel="stylesheet" />
+
+<link href="./Common/css/comment.css" type="text/css" rel="stylesheet" />
+
+<script type="text/javascript" src="./Common/js/jquery.lightbox-0.5.js"></script>
+<script type="text/javascript" src="./Common/js/jquery.masonry.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./Common/css/jquery.lightbox-0.5.css" media="screen" />
+<style type="text/css">
+    .item{
+    border: 1px solid #D4D4D4;
+    color: red;
+    margin: 0 10px 10px 0;
+    padding: 10px;
+    position: relative;
+    /*width: 200px;*/
+}
+</style>
+<div class="main">
+    <div class="shownav mt6">当前位置：<a href="/">首页</a> > <a href="model?cid={$data.ModelType}">{$data.modeltypename}</a> > {$data.NickName} </div>
+
+
+    <div class="showinfo2 mt">
+
+
+
+        <div class="mm-p-middle mm-p-sheShow">
+            <!--基本信息资料开始-->
+            <div class="mm-p-info mm-p-base-info">
+                <h4 title="基本信息"> </h4>
+                <ul class="mm-p-info-cell clearfix">
+                    <li><label>艺&#12288;&#12288;名:</label><span>{$data.NickName}</span></li>
+                    <li class="mm-p-cell-left"><label>生&#12288;&#12288;日:</label><span> 公历 &nbsp;{$data.birthday}</span></li>
+                    <li class="mm-p-cell-right"><label>所在城市:</label><span>{$data.city}</span></li> 
+                    <li class="mm-p-cell-left"><label>类&#12288;&#12288;别:</label><span>{$data.modeltypename}</span></li>
+                    <li class="mm-p-cell-right"><label>血&#12288;&#12288;型:</label><span>{$data.bloodtype}型</span></li> 
+                    <li><label>风&#12288;&#12288;格:</label><span>
+
+
+
+                            <volist name="style" id="vo">
+                                <a id="stylea{$vo.ProClass}"   class='on'>{$vo.ClassName}&nbsp;&nbsp;</a>
+                            </volist>    
+
+
+
+
+                        </span></li> 
+
+                    <li><label>产&#12288;&#12288;品:</label><span> 
+
+                                 <volist name="product" id="vo">
+                                <a id="stylea{$vo.ProClass}"   class='on'>{$vo.ClassName}&nbsp;&nbsp;</a>
+                            </volist>    
+
+
+
+
+                        </span></li>
+                    <li class="mm-p-small-cell mm-p-height"><var></var><p>{$data.height}.0CM</p></li>
+                    <li class="mm-p-small-cell mm-p-weight"><var></var><p>{$data.weight}.0KG</p></li>
+                    <li class="mm-p-small-cell mm-p-size"><var></var><p>{$data.BWH}</p></li>
+                    <li class="mm-p-small-cell mm-p-bar"><var></var><p>{$data.ABC}</p></li>
+                    <li class="mm-p-small-cell mm-p-shose"><var></var><p>{$data.shoeSize}码</p></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <!--本信息资料结束-->
+            <!--拍摄信息资料开始-->
+            <div class="mm-p-info mm-p-photo-info">
+                <h4 title="拍摄信息"></h4>
+                <ul class="mm-p-info-cell clearfix">
+                    <li class="mm-p-cell-left"><label>内景价位:</label><span><b class="rmb">￥</b><strong class="price">{$data['NeiUnitPrice']*$price}</strong> 元/ 件</span></li>
+                    <li class="mm-p-cell-right"><label>外景价位:</label><span><b class="rmb">￥</b><strong class="price">{$data['WaiUnitPrice']*$price}</strong> 元/ 件</span></li>
+                    <li class="mm-p-cell-left"><label>精拍价位:</label><span><b class="rmb">￥</b><strong class="price">{$data['DayPrice']*$price}</strong> 元/ 天（10件以内）</span></li>
+                    <li class="mm-p-cell-right"><label>内衣价位:</label><span><b class="rmb">￥</b><strong class="price">{$data['NeiyiUnitPrice']*$price}</strong> 元/ 件（0表示不拍）</span></li>
+                    <li class="mm-p-cell-left"><label>拍片次数:</label><span>{$data.OrderCount} 次</span></li>
+
+                </ul>
+                <div class="clear"></div>
+            </div>
+
+
+
+            <!--拍摄信息资料结束-->
+            <!--联系方式开始-->
+
+
+            <!--联系方式结束-->
+            <!--域名开始-->
+
+            <!--域名结束-->
+            <!--经历开始-->
+
+            <!--经历结束-->
+        </div>
+        <div class="showinforight">
+            <div class="img1" >
+                <div>
+                    <img src="{$photourl}/photo/{$data.headPiC}" width="206"   /></div>
+
+
+
+            </div>
+            <div class="btnss">
+                <a onclick="ShowDialogo.show('模特预约', '600px', '680px', '', './order?userid={$data.id}', 'nowurl', '0', null, true)" href="javascript:void(0)" class="redbtn">立即预约</a><br />
+                <a  href="album?userid=148" class="redbtn">摄影作品</a><br /> 
+                <a  onclick="ShowDialogo.show('查看档期', '500px', '680px', '', './schedule?userid={$data.id}', 'nowurl', '0', null, true)" href="javascript:void(0)"   class="redbtn">查看档期</a>
+            </div>
+            <div class="clear"></div>
+            <div class="share">
+                <p style="line-height:26px; font-weight:bold; color:#C00; width:150px">将此页转发给朋友</p>
+                <textarea id="shareurl"  >{$data.NickName}'职业平面模特网的主页 http://mm.dymtw.com/show?userid={$data.id}</textarea>
+                <input type="button"   value="复制代码" class="sharebtn" onclick="copyToClipBoard(document.getElementById('shareurl').value)" />
+                <div class="clear"></div>
+            </div>
+
+            <script type="text/javascript" language="javascript">
+
+                //复制到剪切板js代码
+
+                function copyToClipBoard(s) {
+
+                    //alert(s);
+
+                    if (window.clipboardData) {
+
+                        window.clipboardData.setData("Text", s);
+
+                        alert("已经复制到剪切板！" + "\n" + s);
+
+                    } else if (navigator.userAgent.indexOf("Opera") != -1) {
+
+                        window.location = s;
+
+                    } else if (window.netscape) {
+
+                        try {
+
+                            netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+
+                        } catch (e) {
+
+                            alert("被浏览器拒绝！\n请在浏览器地址栏输入'about:config'并回车\n然后将'signed.applets.codebase_principal_support'设置为'true'");
+
+                        }
+
+                        var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+
+                        if (!clip)
+                            return;
+
+                        var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+
+                        if (!trans)
+                            return;
+
+                        trans.addDataFlavor('text/unicode');
+
+                        var str = new Object();
+
+                        var len = new Object();
+
+                        var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+
+                        var copytext = s;
+
+                        str.data = copytext;
+
+                        trans.setTransferData("text/unicode", str, copytext.length * 2);
+
+                        var clipid = Components.interfaces.nsIClipboard;
+
+                        if (!clip)
+                            return false;
+
+                        clip.setData(trans, null, clipid.kGlobalClipboard);
+
+                        alert("已经复制到剪切板！" + "\n" + s)
+
+                    }
+
+                }</script>
+
+        </div>
+
+
+
+        <div class="clear"></div>
+
+
+    </div>
+
+
+
+
+
+
+    <div class="detailinfo mt">
+        <div  class="h">详细资料</div>
+        <div class="c">
+
+            <div style="font-size:14px;">
+                {$data.Content}
+                
+                <IF condition='$data["Ismodelcardshow"]==1'>
+                <img width="900" height="466" src="{$data.modelcardurl}" />
+                </IF>
+                ........<!--经历结束--> <br />
+
+            </div>
+        </div>
+
+    </div>
+        <div class="detailinfo mt" >
+           
+            <div class="alame"  id="container">
+            <volist id="vo" name="piclist">
+                <div class="item">
+                       <div style="overflow:hidden" id="lb">
+<a href="{$photourl}/photo/{$vo.Pic1}" target="_blank">
+<img width="142" src="{$photourl}/photo/{$vo.Pic1}_250x999.jpg">
+</a>
+</div>
+                               
+                </div>
+            </volist>
+                <div class="clear"></div>
+
+            </div>
+        </div> 
+
+
+<!--     <volist name="istyle" id="vo">
+        <div class="detailinfo mt">
+            <div  class="h">{$vo.ClassName}<a href="photo?albumid={$vo.Id}&userid={$data.id}" class="more">更多>></a></div>
+            <div class="alame" >
+                <ul  id="pagephoto{$vo.Id}">
+
+                    <volist name="piclist[$i-1]" id="sub" key="k">
+                        <li style="height:214px; overflow:hidden"><a target="_blank" href="{$photourl}/photo/{$sub.Pic1}">
+                                <img  width="142"  src="{$photourl}/photo/{$sub.Pic1}_250x999.jpg"></a></li>
+
+                    </volist>
+
+
+
+
+                </ul>
+                <div class="clear"></div>
+
+            </div>
+        </div> 
+
+       
+
+    </volist>   
+ -->
+
+
+
+
+<!--     <a name="comment"></a> 
+
+    <div class="main contract-ul"id="J_gradeList" >
+        <div class="detailinfo mt mm-padding" >
+            <div  class="h">模特的拍摄评价</div>
+            <div class="profile-cnt profile-deal" >
+
+
+                <div class='page'></div>    
+            </div>
+        </div>
+    </div>
+ -->
+
+    <div class="clear"></div>
+
+
+
+
+</div>
+ <script type="text/javascript">
+            $(function() {
+                $("#lb a").lightBox();
+            });
+        </script>  
+
+<script type="text/javascript">
+$(function(){
+
+    //页面初始化时执行瀑布流
+    var $container = $('#container');
+     $container.masonry({
+        itemSelector : '.item',
+        isAnimated: true
+     });
+     //用户拖动滚动条，达到底部时ajax加载一次数据
+    // var loading = $("#loading").data("on", false);//通过给loading这个div增加属性on，来判断执行一次ajax请求
+    $(window).scroll(function(){
+     
+     //   if(loading.data("on")) return;
+        if(($(document).scrollTop() + $(window).height()) == $(document).height()){//页面拖到底部了
+            //加载更多数据
+            loading.data("on", true).fadeIn();         //在这里将on设为true来阻止继续的ajax请求
+            $.get(
+                "{:U('Index/pictureMore')}", 
+                function(data){
+                   //获取到了数据data,后面用JS将数据新增到页面上
+                    var html = "";
+                    if($.isArray(data)){
+                        for(i in data){
+                            html += "<img src=\""+data[i]["Pic1"]+"\" >";
+                        }
+                        var $newElems = $(html).css({ opacity: 0 }).appendTo($container);
+                        $newElems.imagesLoaded(function(){
+                            $newElems.animate({ opacity: 1 });
+                            $container.masonry( 'appended', $newElems, true ); 
+                              });
+                      //一次请求完成，将on设为false，可以进行下一次的请求
+                        loading.data("on", false);
+                    }
+                    loading.fadeOut();
+                },
+                "json"
+            );
+        }
+    });
+});
+</script>

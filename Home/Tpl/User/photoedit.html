@@ -1,0 +1,90 @@
+<layout name="Public/index" />
+<link rel="stylesheet" href="../Common/kindeditor/themes/default/default.css" />
+<div class="main">
+    
+    <div class="mt6 user">
+ <include file="left" />
+		<div class="right">
+			<div class="h">
+				相片编辑  <a class="more" href="photo.asp?action=add&amp;albumid=24">+ 添加照片</a>
+			</div>
+
+			<form method="post" action="photo?action=edit">
+				<input type="hidden" name="ProClass" value="{$aid}" />
+				<input type="hidden" name="Id" value="{$pdata.Id}" />
+				<table width="447" cellspacing="0" cellpadding="0" border="0" style="margin-top:30px">
+					<tbody>
+						<tr>
+							<td width="72" height="38">标&nbsp;&nbsp;题：</td>
+							<td width="375">
+							<input type="text" class="input" value="{$pdata.Title}" name="Title">
+							</td>
+						</tr>
+						<tr>
+							<td width="72" height="38">价&nbsp;&nbsp;格：</td>
+							<td width="375">
+							<input type="text" onkeyup="this.value=this.value.replace(/\D/gi,&quot;&quot;)" class="input" value="{$pdata.Price}" name="Price">
+							</td>
+						</tr>
+						<tr>
+							<td width="72" height="38">淘宝地址：</td>
+							<td width="375">
+							<input type="text" class="input" value="{$pdata.taobaourl}" name="taobaourl">
+							</td>
+						</tr>
+						<tr>
+							<td width="72" height="38">照&nbsp;&nbsp;片：</td>
+							<td width="375">
+							<div class="upload">
+								<input class="ke-input-text" type="text" id="url" value="{$pdata.Pic1}" name="Pic1" readonly="readonly" />
+								<input type="button" id="uploadButton" value="Upload" />
+							</div></td>
+						</tr>
+						<tr>
+							<td width="72"></td>
+							<td width="375"><img id="Pic1img" src="{$photourl}/photo/{$pdata.Pic1}"></td>
+						</tr>
+						<tr>
+							<td width="72"></td>
+							<td width="375">
+							<input type="submit" value="确定" class="regbtninput">
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
+				
+
+			</form>
+
+		</div>
+		<div class="clear"></div>
+
+	</div>
+
+</div>
+<script src="../Common/kindeditor/kindeditor-min.js"></script>
+<script>
+	KindEditor.ready(function(K) {
+		var uploadbutton = K.uploadbutton({
+			button : K('#uploadButton')[0],
+			fieldName : 'imgFile',
+			url : './upload?type=photo',
+			afterUpload : function(data) {
+				if (data.error === 0) {
+					//var url = K.formatUrl(data.url, 'absolute');
+					K('#url').val(data.url);
+                                        
+				} else {
+					alert(data.message);
+				}
+			},
+			afterError : function(str) {
+				alert('自定义错误信息: ' + str);
+			}
+		});
+		uploadbutton.fileBox.change(function(e) {
+			uploadbutton.submit();
+		});
+	});  
+</script>

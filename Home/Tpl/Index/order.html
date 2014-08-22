@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<title>订单管理</title>
+		<link href="../Common/js/Calendar/skin/WdatePicker.css" rel="stylesheet" type="text/css">
+		<style type="text/css">
+		object,embed{
+			-webkit-animation-duration:.001s;
+			-webkit-animation-name:playerInserted;
+			-ms-animation-duration:.001s;
+			-ms-animation-name:playerInserted;-o-animation-duration:.001s;
+			-o-animation-name:playerInserted;animation-duration:.001s;
+			animation-name:playerInserted;
+		}
+			@-webkit-keyframes playerInserted{from{opacity:0.99;}
+			to{opacity:1;}}
+			@-ms-keyframes playerInserted{from{opacity:0.99;}
+			to{opacity:1;}}
+			@-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}
+			@keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}
+
+		</style>
+	</head>
+	<body>
+		<style>
+			body{ margin:0; padding:0; font-size:12px; font-family:'宋体'}
+			.pic{ width:140px; height:160px; overflow:hidden; padding:4px; border:1px solid #ccc; margin:14px auto}
+			.pic1{ width:140px;height:160px;overflow:hidden;}
+			.orderleft{ width:250px;  float:left; margin-left:10px; border-right:1px solid #ccc; overflow:hidden; height:480px}
+			.orderright{ width:400px; float:right;   margin-left:10px; margin-right:8px;}
+			.shedule{ width:230px}
+			.txt{ text-align:center; font-size:15px;}
+			.txt a{ color:#C00; font-weight:bold; text-decoration:none}
+			.txt a:hover{ color:#C00;  text-decoration:underline}
+			.txt1{ color:#666; font-size:12px; text-align:center; margin:4px 0; margin-top:16px;}
+			.input{ background:url(/images/txt_bg.png); height:20px; line-height:20px; overflow:hidden; border:1px solid #b2b2b2; padding:0 4px; width:140px}
+			.regbtninput{ background:url(../images/bnt_sign.gif); height:26px; width:80px; border:0; line-height:22px;}
+			input.s{ width:20px; }
+			input.m{ width:60px; }
+			img { border:none}
+		</style>
+		<script src="../Common/js/Calendar/WdatePicker.js" type="text/javascript"></script>
+		<script src="../Common/js/user/Validator.js?v=1"></script>
+		<div class="main">
+			<div class="orderleft">
+				<div class="pic">
+					<div class="pic1">
+						<a target="_blank" href="./show?userid={$info.id}"><img width="140" src="{$photourl}/photo/{$info.headPiC}"></a>
+					</div></div>
+					<div class="txt">
+						<a target="_blank" href="./show?userid={$info.id}">{$info.NickName}</a>&nbsp;{$info.height}/{$info.weight}KG
+					</div>
+					<div class="txt1">
+						年龄：{$info.age}岁&nbsp;类型：{$info.modeltypename}
+					</div>
+					<!--<div class="shedule" style="position:relative"><div style="height:100%; width:100%; position:absolute; top:0; left:0; "></div><iframe src="schedule.asp?userid=254&hide=1&rnd=.7481195" frameborder=no  scrolling="no" height="300" width="254"></iframe></div>-->
+				</div>
+				<div class="orderright">
+					<form onsubmit="return Validator.Validate(this, 3)" name="myform" method="post" action="order?action=add">
+						<table cellspacing="0" cellpadding="0" border="0" width="396">
+							<tbody><tr>
+								<td align="center" width="81" height="28">预约时间：</td>
+								<td width="315"><input type="text" msg="请选择时间" regexp="[\-\d]+$" datatype="Custom" readonly="" onfocus="WdatePicker({isShowClear:false, readOnly:true, dateFmt:'yyyy-MM-dd'})" value="{$date}" name="OrderDay" class="input" realvalue=""></td>
+							</tr>
+							<tr>
+								<td align="center" height="28">拍摄地点：</td>
+								<td><script src="../Common/js/city.js" type="text/javascript"></script>
+								<select onchange="changelocation(document.myform.sort_one.options[document.myform.sort_one.selectedIndex].value)" name="proid" id="sort_one">
+									<option value="1">北京市</option>
+									<option value="2">天津市</option>
+									<option value="3">上海市</option>
+									<option value="4">重庆市</option>
+									<option value="5">黑龙江</option>
+									<option value="6">吉林省</option>
+									<option value="7">辽宁省</option>
+									<option value="8">青海省</option>
+									<option value="9">甘肃省</option>
+									<option value="10">陕西省</option>
+									<option value="11">西藏</option>
+									<option value="12">内蒙古</option>
+									<option value="13">新疆</option>
+									<option value="14">宁夏</option>
+									<option value="15">广西</option>
+									<option value="16">四川省</option>
+									<option value="17">贵州省</option>
+									<option value="18">云南省</option>
+									<option value="19">广东省</option>
+									<option value="20">福建省</option>
+									<option value="21">湖南省</option>
+									<option value="22">江西省</option>
+									<option value="23">湖北省</option>
+									<option value="24">浙江省</option>
+									<option value="25">江苏省</option>
+									<option value="26">河南省</option>
+									<option value="27">河北省</option>
+									<option value="28">山东省</option>
+									<option value="29">山西省</option>
+									<option value="30">海南省</option>
+									<option value="31">安徽省</option>
+								</select>
+								<select name="cityid" onchange="changelocation2(document.myform.sort_two.options[document.myform.sort_two.selectedIndex].value)" msg="请选择城市" datatype="Number" id="sort_two">
+									<option value="">选择城市</option><option value="34">杭州市</option><option value="35">宁波市</option><option value="36">湖州市</option><option value="37">嘉兴市</option><option value="38">绍兴市</option><option value="39">台州市</option><option value="40">温州市</option><option value="41">丽水市</option><option value="42">金华市</option><option value="43">衢州市</option><option value="44">舟山市</option></select>
+									<select msg="请选择区域" datatype="Number" name="areaid" id="sort_tree">
+										<option value="">选择区域</option><option value="1142">上城区</option><option value="1143">下城区</option><option value="1144">江干区</option><option value="1145">拱墅区</option><option value="1146">西湖区</option><option value="1147">滨江区</option><option value="1148">萧山区</option><option value="1149">余杭区</option><option value="1150">桐庐县</option><option value="1151">淳安县</option><option value="1152">建德市</option><option value="1153">富阳市</option><option value="1154">临安市</option></select>
+										<script>
+											function selected(id, val){
+											for (var i = 0; i & lt; document.getElementById(id).options.length; i++)
+											{
+											if (document.getElementById(id).options[i].value == val)
+											{
+											document.getElementById(id).options[i].selected = true;
+												break;
+											}
+											}
+											}
+										selected("sort_one", {$info.proid})
+											changelocation({$info.proid});
+											selected("sort_two", {$info.cityid})
+											changelocation2(cityid);
+											selected("sort_tree", {info.areaid})
+											
+									</script></td>
+								</tr>
+								<tr>
+									<td align="center" height="28">&nbsp;</td>
+									<td><input type="text" msg="请填写地址" regexp="[\w\W]+$" datatype="Custom" value="" class="input" name="Address"></td>
+								</tr>
+								<tr>
+									<td align="center" height="28">拍摄产品：</td>
+									<td> <input type="checkbox" value="1" name="ProductTypes">服饰<input type="checkbox" value="2" name="ProductTypes">内衣<input type="checkbox" value="3" name="ProductTypes">鞋帽<input type="checkbox" value="4" name="ProductTypes">护肤<input type="checkbox" value="5" name="ProductTypes">佩饰<input type="checkbox" value="6" name="ProductTypes">彩妆
+								</td>
+							</tr>
+							<tr>
+								<td align="center" height="28">产品说明：</td>
+								<td><textarea style="width:270px" rows="3" cols="38" name="Productinfo"></textarea></td>
+							</tr>
+							<tr>
+								<td align="center" height="28">拍摄件数：</td>
+								<td><input type="text" msg="只能为数字" regexp="[\d]+$" datatype="Custom" value="10" onkeyup="this.value = this.value.replace(/\D/gi, & quot; & quot; )" class="input m" name="PhotoCount"></td>
+							</tr>
+							<tr>
+								<td align="center" height="28">拍摄类型：</td>
+								<td><input type="radio" onclick="PriceShow(1)" id="neijing" checked="checked" value="内景" name="PhotoType"><label for="neijing">内景</label> <input type="radio" onclick="PriceShow(2)" id="waijing" value="外景" name="PhotoType"><label for="waijing">外景</label> <input type="radio" id="neiyi" onclick="PriceShow(3)" value="内衣" name="PhotoType"><label for="neiyi">内衣</label> <input type="radio" onclick="PriceShow(4)" id="jingpai" value="精拍" name="PhotoType"><label for="jingpai">精拍</label> </td>
+							</tr>
+							<tr>
+								<td align="center" height="28">保 证 金：</td>
+								<td><input type="text" readonly="readonly" msg="请选类型" regexp="[\d]+$" datatype="Custom" id="TotalPrice" class="input s" value="1000" name="TotalPrice">
+								元 (为保护模特的权益，您需要缴纳保证金<br>
+								后才能预约模特，保证金可以自主提现)
+							</td>
+						</tr>
+						<tr>
+							<td align="center" height="28">联系手机：</td>
+							<td><input type="text" msg="手机格式错" datatype="Mobile" value="18667189856" class="input" name="Mobile"></td>
+						</tr>
+						<tr>
+							<td align="center" height="28">联系旺旺：
+							</td>
+							<td><input type="text" value="" class="input" name="wangwang"></td>
+						</tr>
+						<tr>
+							<td align="center" height="28">附加留言：</td>
+							<td valign="top" style="padding-top:6px;" rowspan="2"><textarea style="width:270px" rows="5" cols="38" name="Content"></textarea></td>
+						</tr>
+						<script>
+							var Pricearr = new Array();
+							var comapnybalance = {$comapnybalance};
+							Pricearr[1] = {$info.NeiUnitPrice};
+							Pricearr[2] = {$info.WaiUnitPrice};
+							Pricearr[3] = {$info.NeiyiUnitPrice};
+							Pricearr[4] = {$info.DayPrice};
+							var TotalPrice = document.getElementById("TotalPrice")
+							function PriceShow(val){
+							if (val == 1 || val == 2 || val == 3){
+							if (Pricearr[val] < 50){TotalPrice.value = "500"}
+							if (Pricearr[val]  >= 50 && Pricearr[val] <= 80){TotalPrice.value = "1000"}
+							if (Pricearr[val]  > 80){TotalPrice.value = "1500"}
+							} else{
+							TotalPrice.value = Pricearr[val];
+							}
+							//保证金固定2000
+							TotalPrice.value = "1000"
+								if (parseInt(TotalPrice.value)> comapnybalance){document.getElementById("submitord").disabled = true;
+																								document.getElementById("yuebuzu").innerHTML = 																document.getElementById("yuebuzu").innerHTML = document.getElementById("yuebuzu").innerHTML="* 余额不足，请<a href='javascript:infoid(0)' onclick='window.top.location=\"./User/pay\"'>充值</a>后再预约！"
+							} else{document.getElementById("submitord").disabled = false; document.getElementById("yuebuzu").innerHTML = ""}
+							}
+						</script>
+						<tr>
+							<td height="57">&nbsp;</td>
+						</tr>
+						<tr>
+							<td height="28">&nbsp;</td> 
+							<td height="40"><input type="submit" class="regbtninput" id="submitord" value=" 确认预约 " >&nbsp;</td>
+						</tr>
+						<tr>
+							<td align="right" height="28">注意事项：</td>
+							<td height="40">
+								<p>预约后请及时告知在线客服，我们会将拍摄事宜转告模特。</p>
+							<span id="yuebuzu" style="color:red"></td>
+							<script>
+									document.getElementById("submitord").disabled = true;
+									document.getElementById("yuebuzu").innerHTML = document.getElementById("yuebuzu").innerHTML="* 余额不足，请<a href='javascript:void(0)' onclick='window.top.location=\"./User/pay\"'>充值</a>后再预约！"
+							</script>
+						</tr>
+					</tbody></table>
+					<input type="hidden" value="{$info.id}" name="modelid"> 
+					<input type="hidden" value="o_rder" name="action">
+				</form>
+			</div>
+		</div>
+	</body></html>

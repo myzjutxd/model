@@ -1,0 +1,126 @@
+<layout name="Public/index" />
+<div class="main">
+
+	<div class="mt6 user">
+		<include file="left" />
+		<div class="right">
+			<div class="logininfo">
+				<div class="pic">
+					<a href="./headpic"><img src="{$photourl}/photo/{$info.headPiC}"  onerror="javascript:this.src='/Common/images/nopic.jpg'" width="90" height="142"  alt="修改头像" style="border-width: 0px; padding: 0px;"/></a>
+				</div>
+				<div class="txt">
+
+					<ul>
+						<li>
+							用 户 名：<strong>{$info.realName}</strong>
+						</li>
+						<li>
+							账户余额：￥<strong>{$info.balance}</strong>元 [<a href="tixian.asp">提现</a>]
+						</li>
+						<li>
+							登录次数：{$info.Logincount}次
+						</li>
+						<li>
+							拍片预约：{$info.OrderCount}次
+						</li>
+						<li>
+							登录时间：{$info.LoginTime}
+						</li>
+						<li>
+							评价记录：{$info.commentCount}次
+						</li>
+						<li>
+							登录 IP ：{$info.LoginIP}
+						</li>
+						<li>
+							照片数量：{$info.PhotoCount}张
+						</li>
+					</ul>
+
+				</div>
+
+				<div class="clear"></div>
+			</div>
+
+			<ul class="myinfo">
+				<li>
+					姓  名：{$info.realName}
+				</li>
+				<li>
+					艺 名：{$info.NickName}
+				</li>
+				<li>
+					所在城市：<script type="text/javascript" src="../Common/js/city.js"></script>
+					<script>
+						for ( i = 0; i < onecount; i++) {
+							if (subcat[i][2] == '{$info.cityId}') {
+								document.writeln(subcat[i][0]);
+
+							}
+						}
+					</script>
+				</li>
+
+				<li>
+					生  日：{$info.birthday}
+				</li>
+				<li>
+					类  别：{$info.product}
+				</li>
+				<li>
+					血型：{$info.bloodtype}
+				</li>
+
+				<li>
+					身  高：{$info.height} CM
+				</li>
+				<li>
+					体 重：{$info.weight} KG
+				</li>
+				<li>
+					三 围：{$info.BWH}
+				</li>
+				<li>
+					鞋 码：{$info.shoeSize} 码
+				</li>
+				<li class="lon">
+					拍摄价位：内景：{$info.NeiUnitPrice}元/件 外景：{$info.WaiUnitPrice}元/件 精拍：{$info.DayPrice}元/天（0件以内） 内衣：{$info.NeiyiUnitPrice}元/件 
+				</li>
+
+				<li class="lon styles" style="height:auto">
+					风格：{$info.stylename}
+				</li>
+
+				<li>
+					电话号码：{$info.Phone}
+				</li>
+				<li>
+					传真号码：{$info.Fax}
+				</li>
+				<li>
+					手机号码：{$info.Mobile}
+				</li>
+				<li>
+					电子邮箱：{$info.email}
+				</li>
+
+				<style>
+					.styles a {
+						display: inline-block;
+						padding: 0px 6px;
+						line-height: 22px;
+						margin: 0px 6px;
+						margin-left: 0
+					}
+
+				</style>
+
+			</ul>
+
+		</div>
+		<div class="clear"></div>
+
+	</div>
+
+</div>
+

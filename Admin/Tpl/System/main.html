@@ -1,0 +1,90 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<link href="..Common/skin/system.css" rel="stylesheet" type="text/css">
+
+<script type="text/javaScript" src="../../Common/JsScript/jquery.min.js"></script>
+<script type="text/javaScript" src="../../Common/JsScript/css.js"></script>
+<script type="text/javaScript" src="../../Common/JsScript/common.js"></script>
+<script type="text/javaScript" src="../../Common/JsScript/admin.js"></script>
+<script type="text/javascript" src="../../Common/JsScript/validator.js"></script>
+
+</head>
+ 
+<style type="text/css">
+<!--
+* { padding:0; margin:0;}
+body { padding:0; font-size:12px; color: black;	line-height: 150%; background-color: white;}
+
+
+a:link, a:visited { text-decoration:none; color:#5097D8;}
+a:hover, a:active { text-decoration:underline;}
+a.orange:link, a.orange:visited { text-decoration:none;	color:orange;}
+a.orange:hover, a.orange:active { text-decoration:underline;}
+ul li {	list-style:none; margin:5px 0;}
+img { border-width:0;}
+.font_arial { font-family:Arial, Helvetica;}
+.bdr{border:1px solid #b4d3ef; clear:both;}
+#admin_main{ padding:0 10px;}
+caption{*margin-top:10px; line-height:25px; height:25px; text-align:left; padding-left:14px;}
+caption,#admin_main h3 { border:1px solid #99d3fb; border-bottom-width:0; color:#077ac7; background:url(admin/skin/images/bg_table.jpg) repeat-x 0 0; height:27px; line-height:27px; margin:10px auto 0; font-size:12px; font-family:""}
+caption{border-bottom:1px solid #99d3fb !important; border:1px solid #99d3fb; border-bottom-width:0; font-weight:bold; }
+caption span{float:right; padding-right:10px;}
+table{background:#99d3fb; margin-top:-5px !important; margin-top:10px; width:100%;}
+td{background:#fff;}
+th,td{line-height:24px; text-align:center; color:#5097D8;}
+th{ font-size:12px; background: url(../../Common/skin/images/bg_table.jpg) repeat-x 0 -26px; line-height:22px; height:24px !important; height:22px; font-weight:bold;}
+#admin_main_2_1 {width:48%; float:left;}
+#admin_main_2_1 p { border-bottom:1px dotted #b4d3ef; margin:10px auto;	text-align:left; padding:0 10px 10px; color:#5097D8;	line-height:22px;}
+#admin_main_2_2 { float:left; margin-left:1.5%; width:48%;}
+#admin_main_2_2 li,#admin_main_2_1 li { background:#fff url(../../Common/skin/images/list_bg.gif) no-repeat 5px 8px;}
+#admin_main_2_2 { float:left; margin-left:1.5%; width:48%;}
+.ad { text-align:center; margin:10px auto;}
+.c_orange { color:orange;}
+-->
+</style>
+<script type="text/javascript">
+function getmemo(){
+$.get('../System/loadmemo/action/get',function(data){$('#memo_mtime').html(data.substring(0,data.indexOf(",")));$('#memo_data').val(unescape(data.substring(data.indexOf(",")+1)));}); 
+}
+function setmemo()
+{
+$.post("../System/loadmemo/action/set",{ data:escape($('#memo_data').val())},function(data){$("#memo_mtime").html(data);});
+}	
+</script>
+<body onLoad="getmemo();" >
+<div id="admin_main">
+  <div id="admin_main_2_1">
+    <h3>我的个人信息</h3>
+    <div class="bdr">
+		<!--管理员基本信息-->
+		<p>您好，
+		<strong>
+		<span class="font_arial" style="color:#690">
+		{$admin.username}
+		</span>
+		</strong>
+		<br />
+		 角色：{$admin.role}  <br />
+		  </p>		<p>
+		  上次登录时间：{$admin.lastlogintime}<br />
+		  上次登 录 IP：{$admin.lastloginIP} <br />
+		  总记登录次数：{$admin.logincount} 次
+		</p>
+    </div>
+
+	<div id="phpcms_notice"></div>
+
+  </div>
+  <div id="admin_main_2_2">
+    <h3  ><span id="memo_mtime" style="float:right; padding-right:10px;"></span>我的备忘录</h3>
+    <div class="bdr" style="width:100%">
+	<textarea name="memo_data" class="inputtext" id="memo_data" style="height:160px;width:94%;margin:5px;padding:5px" onblur='setmemo()'></textarea>
+    </div>
+	
+  </div>
+</div>
+</body>
+</html>

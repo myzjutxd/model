@@ -1,0 +1,55 @@
+<layout name="Public/index" />
+<div class="main ">
+
+
+	<div class="detailinfo  ">
+
+		<div class="c">
+
+
+			<div class="bigbox mtf2">
+				<div class="box_top"></div>
+
+				<div class="help_left">
+
+        <volist name="hlist" id="vo">
+
+					<div class="help_class">{$vo.ClassName}</div>
+
+                    <volist name="vo['menu']" id="menu">
+					<div class="help_t">
+						<a href="help?id={$menu.Id}">{$menu.Title}</a>
+					</div>
+
+					
+                    </volist>
+</volist>
+
+					
+
+
+
+
+				</div>
+				<div class="help_right">
+					<div class="help_title">{$help.Title}</div>
+
+					<div class="help_conn">
+						{$help.Content}
+
+					</div>
+				</div>
+
+				<div class="clear"></div>
+
+
+
+
+				<div class="linehui1" style="display: none"></div>
+
+				<div class="box_foot"></div>
+			</div>
+		</div>
+	</div>
+</div>
+

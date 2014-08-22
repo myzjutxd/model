@@ -1,0 +1,467 @@
+<layout name="Index/index" />
+<div class="main siteConn1 mt6">
+	<div class="index_flash">
+		<div class="flash_top">
+		</div>
+		<div class="mm_slideshow">
+			<div class="slide" id="slides">
+				<ul class="slides_container">
+					<volist name="banner" id="banner">
+						<li style="background: url(../Common/{$banner.LogoUrl}) no-repeat 0 0;">
+							<a href="{$banner.LinkUrl}" title="{$banner.LinkName}" target="_blank"> <span>{$banner.LinkName}</span>
+							</a>
+						</li>
+					</volist>
+				</ul>
+				<div class="point-ctrl">
+					<a class="prev" href="javascript:void(0)" hidefocus="true"></a>
+					<a class="next" href="javascript:void(0)" hidefocus="true"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="loginbox">
+		<div class="loginbox_t">
+		</div>
+		<div class="loginbox_c">
+			<form action="./login" method="post">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="25%" height="32" align="right">
+							用户名：
+						</td>
+						<td colspan="2">
+							<input type="text" value="" class="input" name="username" />
+						</td>
+					</tr>
+					<tr>
+						<td height="32" align="right">
+							密&nbsp;&nbsp;码：
+						</td>
+						<td colspan="2">
+							<input type="password" value="" class="input" name="Password" />
+						</td>
+					</tr>
+					<tr>
+						<td height="32" align="right">
+							验证码：
+						</td>
+						<td colspan="2" valign="middle">
+							<table width="100" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td>
+										<input type="text" value="" class="input code" name="validatecode" />
+									</td>
+									<td>
+										<img src='/user/RndCode' onclick="this.src='/user/RndCode?t='+(new Date().getTime());" style="cursor: pointer">
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td height="32" align="center">
+							&nbsp;
+						</td>
+						<td width="30%" colspan="1">
+							<input type="submit" value=" " class="loginbtn" />
+						</td>
+						<td width="45%">
+							<a href="./reg">注册</a>
+							<a href="./forget">忘记密码？</a>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<div class="loginline">
+			</div>
+			<div class="loginnotice">
+				<div class="l" id="demo-04">
+					<ul>
+						<volist name="noticeindex" id="noticeindex">
+							<li class='b'>
+								<a href="noticeshow?id={$noticeindex.Id}">{$noticeindex.Title}</a>
+							</li>
+						</volist>
+					</ul>
+				</div>
+				<script type="text/javascript" src="../Common/js/jcarousellite.js">
+					
+				
+				</script>
+				<script type="text/javascript">
+					
+					
+					$(document).ready(function() {
+						$('#demo-04').jCarouselLite({
+							mouseWheel : true,
+							speed : 500,
+							auto : 3500,
+							visible : 7,
+							vertical : true
+						});
+					});
+				
+				
+				</script>
+			</div>
+		</div>
+		<div class="loginbox_f">
+		</div>
+	</div>
+</div>
+<div class="main">
+	<div>
+		<embed height="150" width="960" flashvars="bannerWidth=960&bannerHeight=150&bannerSID=http://img2.tbcdn.cn/tfscom/T17OBWFedbXXXgzXjX.xml&bannerXML=&bannerLink=http%3A%2F%2F&dataSource=&bid=37281283&appSource=default"
+		wmode="transparent" allowscriptaccess="always" quality="high" name="37281283" id="37281283" style="" src="http://img.uu1001.cn/bcv3.swf?v=20130718-183345" type="application/x-shockwave-flash" />
+		</embed>
+	</div>
+	<div class="modelhead">
+		<div class="h">
+			淘女郎VIP
+			<a href="./model?cid=1" class="more">更多淘女郎VIP>></a>
+		</div>
+		<div class="items">
+			<volist name="tuijian[1]" id="vo">
+				<div class="first">
+					<a href="./show?userid={$vo.id}" target="_blank"><img
+					src="../Common/{$vo.headPiC}_250x999.jpg"
+					width="250" height="394" /></a>
+					<a href="./show?userid={$vo.id}" class="name" target="_blank">{$vo.NickName}-平面女模 身高{$vo.height}CM <span
+					onclick="ShowDialogo.show('查看档期', '500px', '680px', '', './schedule?userid={$vo.id}', 'nowurl', '0',null,true);return false"
+					title="查看档期" style="color: #F00">[查档期]</span></a>
+				</div>
+			</volist>
+			<ul class="item">
+				<volist name="mlist[1]" id="vo">
+					<li>
+						<div class="pic">
+							<div>
+								<a href="show?userid={$vo.id}" target="_blank"><img
+								src="../Common/{$vo.headPiC}_250x999.jpg"
+								width="153" /></a>
+							</div>
+						</div>
+						<a href=".show?userid={$vo.id}" class="name" target="_blank">{$vo.NickName}-身高{$vo.height}CM
+						<span
+						onclick="ShowDialogo.show('查看档期', '500px', '680px', '', './schedule?userid={$vo.id}', 'nowurl', '0',null,true);return false"
+						title="查看档期" style="color: #F00">[查档期]</span>
+						</a>
+					</li>
+				</volist>
+			</ul>
+		</div>
+	</div>
+	<div class="modelhead">
+		<div class="h">
+			平面男模
+			<a href="/model?cid=2" class="more">更多平面男模>></a>
+		</div>
+		<div class="items2">
+			<volist name="mlist[2]" id="vo">
+				<ul class="xinggan_1 <IF condition='$i==1'>first2</IF>">
+					<li>
+						<IF condition="$i==1 or $i==3 ">
+							<p>
+								<em>
+									{$i}
+								</em>
+								<span class='mt5'>
+									<a href='./show?userid= {$mlist.2.id}' title='杭州平面男模 {$vo.NickName} 身高186cm' target='_blank'>杭州平面男模  {$vo.NickName}
+									身高 {$vo.height}CM</a>
+								</span>
+								<span style='width: 100px'>
+									人气： {$vo.viewcount}
+								</span>
+								<span class='sdqsp' onclick="ShowDialogo.show('查看档期', '500px', '680px', '', './schedule?userid=433', 'nowurl', '0',null,true);return false" title="查看档期" style='color: #F00'>
+									[查档期]
+								</span>
+							</p>
+						</IF>
+						<div class='pic'>
+							<div>
+								<a href='show?userid= {$vo.id}' target='_blank'><img
+								src='../Common/{$vo.headPiC}_250x999.jpg'
+								width='153' /></a>
+							</div>
+						</div>
+						<IF condition="$i==2 or $i==4 ">
+							<p>
+								<em>
+									{$i}
+								</em>
+								<span class='mt5'>
+									<a href='./show?userid= {$vo.id}' title='杭州平面男模 {$vo.NickName} 身高186cm' target='_blank'>杭州平面男模  {$vo.NickName}
+									身高 {$vo.height}CM</a>
+								</span>
+								<span style='width: 100px'>
+									人气： {$vo.viewcount}
+								</span>
+								<span class='sdqsp' onclick="ShowDialogo.show('查看档期', '500px', '680px', '', './schedule?userid=433', 'nowurl', '0',null,true);return false" title="查看档期" style='color: #F00'>
+									[查档期]
+								</span>
+							</p>
+						</IF>
+					</li>
+				</ul>
+			</volist>
+			</li>
+			</ul>
+			</li>
+			</ul>
+			</li>
+			</ul>
+			</li>
+			</ul>
+			</li>
+			</ul>
+			</li>
+			</ul>
+			</li>
+			</ul>
+			<div class="clear">
+			</div>
+		</div>
+	</div>
+	<div class="modelhead">
+		<div class="h">
+			外籍女模
+			<a href="/model?cid=3" class="more">更多外籍女模>></a>
+		</div>
+		<div class="siwameinv">
+			<div class="siwa_h379_w10">
+			</div>
+            <volist name="tuijian[2]" id="vo">
+			<div class="siwameinv1">
+				<a target="_blank" title="杭州外籍女模{$vo.NickName} 身高{$vo.height}CM" href="show?userid={$vo.id}"><img alt="杭州外籍女模{$vo.NickName} 身高{$vo.height}CM" src="../Common/{$vo.headPiC}_250x999.jpg" ></a>
+				<span class="filter50">
+					<a target="_blank" title="杭州外籍女模{$vo.NickName} 身高{$vo.height}CM" href="show?userid={$vo.id}">杭州外籍女模{$vo.NickName} 身高{$vo.height}CM <font  onclick="ShowDialogo.show('查看档期', '500px', '680px', '', '/Schedule?userid=164', 'nowurl', '0',null,true);return false" title="查看档期" style="color:#F00">[查档期]</font></a>
+				</span>
+			</div>
+            </volist>
+			<div class="siwa_h379_w10">
+			</div>
+			<div class="siwameinv2">
+				<ul>
+                <volist name="mlist[3]" id="vo">
+					<li>
+						<div>
+							<a target="_blank" href="show?userid={$vo.id}"><img alt="外籍女模{$vo.NickName} 身高{$vo.height}CM" src="../Common/{$vo.headPiC}_250x999.jpg"></a>
+						</div>
+						<span class="filter50">
+							<a target="_blank" title="外籍女模{$vo.NickName} 身高{$vo.height}CM" href="show?userid={$vo.id}">{$vo.NickName}/{$vo.height}CM<font  onclick="ShowDialogo.show('查看档期', '500px', '680px', '', './Schedule?userid={$vo.id}', 'nowurl', '0',null,true);return false" title="查看档期" style="color:#F00">[查档期]</font></a>
+						</span>
+					</li>
+            </volist>
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="modelhead">
+		<div class="h">
+			外籍男模
+			<a href="./model?cid=4" class="more">更多外籍男模>></a>
+		</div>
+		<div class="items2">
+			<volist name="mlist[4]" id="vo">
+            <ul class="xinggan_2 <IF condition='$i==1'>first2</IF> ">
+				<li>
+                 <IF condition='$i==2 or $i==4'>
+                	<div class='pic' onmousemove='ToTxt({$i-1})' onmouseout='ToTxtout({$i-1})'>
+						<div>
+							<a href='show?userid={$vo.id}' target='_blank'><img src='../Common/{$vo.headPiC}_250x999.jpg' width='153' /></a>
+						</div>
+					</div>
+                   </IF> 
+                    
+					<p id='txttttt{$i-1}' onmousemove='ToTxtt({$i-1})'>
+						<em>
+							{$i}
+						</em>
+						<span class='mt5'>
+							<a href='show?userid={$vo.id}' title='杭州外籍男模 {$vo.NickName} 身高{$vo.height}cm' target='_blank'>杭州外籍男模 {$vo.NickName} 身高{$vo.height}cm</a>
+						</span>
+						<span style='width:100px'>
+							人气：{$vo.viewcount}
+						</span>
+						<span class='sdqsp' onclick="ShowDialogo.show('查看档期', '500px', '680px', '', '/Schedule?userid={$vo.id}', 'nowurl', '0',null,true);return false" title="查看档期" style='color:#F00'>
+							[查档期]
+						</span>
+					</p>
+                     <IF condition='$i==1 or $i==3' >
+					<div class='pic' onmousemove='ToTxt({$i-1})' onmouseout='ToTxtout({$i-1})'>
+						<div>
+							<a href='show?userid={$vo.id}' target='_blank'><img src='../Common/{$vo.headPiC}_250x999.jpg' width='153' /></a>
+						</div>
+					</div>
+                    </IF>
+				</li>
+			</ul>
+            </volist>
+			
+			</li>
+			</ul>
+			</li>
+			</ul>
+			</li>
+			</ul>
+			</li>
+			</ul>
+			</li>
+			</ul>
+			<div class="clear">
+			</div>
+		</div>
+	</div>
+	<div class="modelhead">
+		<div class="h">
+			儿童模特
+			<a href="/search?ModelTypeid=5" class="more">更多儿童模特>></a>
+		</div>
+		<div class="siwameinv">
+			<div class="siwa_h379_w10">
+			</div>
+			<volist name="tuijian[3]" id="vo">
+			<div class="siwameinv1">
+				<a target="_blank" title="杭州儿童模特{$vo.NickName} 身高{$vo.height}CM" href="show?userid={$vo.id}"><img alt="杭州儿童模特{$vo.NickName} 身高{$vo.height}CM" src="../Common/{$vo.headPiC}_250x999.jpg" ></a>
+				<span class="filter50">
+					<a target="_blank" title="杭州儿童模特{$vo.NickName} 身高{$vo.height}CM" href="show?userid={$vo.id}">杭州儿童模特{$vo.NickName} 身高{$vo.height}CM <font  onclick="ShowDialogo.show('查看档期', '500px', '680px', '', '/Schedule?userid=164', 'nowurl', '0',null,true);return false" title="查看档期" style="color:#F00">[查档期]</font></a>
+				</span>
+			</div>
+            </volist>
+			<div class="siwa_h379_w10">
+			</div>
+			<div class="siwameinv2">
+				<ul>
+				<volist name="mlist[5]" id="vo">
+					<li>
+						<div>
+							<a target="_blank" href="show?userid={$vo.id}"><img alt="儿童模特{$vo.NickName} 身高{$vo.height}CM" src="../Common/{$vo.headPiC}_250x999.jpg"></a>
+						</div>
+						<span class="filter50">
+							<a target="_blank" title="儿童模特{$vo.NickName} 身高{$vo.height}CM" href="show?userid={$vo.id}">{$vo.NickName}/{$vo.height}CM <font  onclick="ShowDialogo.show('查看档期', '500px', '680px', '', './Schedule?userid={$vo.id}', 'nowurl', '0',null,true);return false" title="查看档期" style="color:#F00">[查档期]</font></a>
+						</span>
+					</li>
+            </volist>
+				
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+		
+              function ToTxt(i){
+ 				   $("#txttttt"+i).fadeIn(300);
+  			  } 
+			  function ToTxtout(i){
+				   $("#txttttt"+i).fadeOut(300);
+  			  }
+			  function ToTxtt(i){
+				   $("#txttttt"+i).fadeIn(1);
+  			  } 
+              
+              
+              
+	</script>
+	<div class="modelhead">
+		<div class="h">
+			大龄模特
+			<a href="/model?cid=6" class="more">更多大龄模特>></a>
+		</div>
+		<div class="items2">
+					<volist name="mlist[6]" id="vo">
+            <ul class="xinggan_2 <IF condition='$i==1'>first2</IF> ">
+				<li>
+                 <IF condition='$i==2 or $i==4'>
+                	<div class='pic' onmousemove='ToTxt({$i-1})' onmouseout='ToTxtout({$i-1})'>
+						<div>
+							<a href='show?userid={$vo.id}' target='_blank'><img src='../Common/{$vo.headPiC}_250x999.jpg' width='153' /></a>
+						</div>
+					</div>
+                   </IF> 
+                    
+					<p id='txttttt{$i-1}' onmousemove='ToTxtt({$i-1})'>
+						<em>
+							{$i}
+						</em>
+						<span class='mt5'>
+							<a href='show?userid={$vo.id}' title='杭州大龄模特 {$vo.NickName} 身高{$vo.height}cm' target='_blank'>杭州大龄模特 {$vo.NickName} 身高{$vo.height}cm</a>
+						</span>
+						<span style='width:100px'>
+							人气：{$vo.viewcount}
+						</span>
+						<span class='sdqsp' onclick="ShowDialogo.show('查看档期', '500px', '680px', '', '/Schedule?userid={$vo.id}', 'nowurl', '0',null,true);return false" title="查看档期" style='color:#F00'>
+							[查档期]
+						</span>
+					</p>
+                     <IF condition='$i==1 or $i==3' >
+					<div class='pic' onmousemove='ToTxt({$i-1})' onmouseout='ToTxtout({$i-1})'>
+						<div>
+							<a href='show?userid={$vo.id}' target='_blank'><img src='../Common/{$vo.headPiC}_250x999.jpg' width='153' /></a>
+						</div>
+					</div>
+                    </IF>
+				</li>
+			</ul>
+            </volist>
+		
+			</li>
+			</ul>
+			</li>
+			</ul>
+			</li>
+			</ul>
+			<div class="clear">
+			</div>
+		</div>
+	</div>
+	<div class="modelhead">
+		<div class="h">
+			最新作品
+		</div>
+		<div class="newphoto">
+			<div id="demo-05">
+				<ul>
+                <volist name="piclist" id="vo">
+					<li>
+						<div class="img">
+							<a href="show?userid={$vo.userid}" target="_blank"><img src="../Common/{$vo.Pic1}_250x999.jpg" width="183" /></a>
+						</div>
+						<div>
+							<a href="show?userid={$vo.userid}" target="_blank"></a>
+						</div>
+					</li>
+                    </volist>
+				</ul>
+			</div>
+			<script type="text/javascript" src="js/jcarousellite.js">
+			</script>
+			<script type="text/javascript">
+				
+	$(document).ready(function(){
+		$('#demo-05').jCarouselLite({
+		    mouseWheel: true, 
+    		speed: 500,
+			auto:3500,
+			visible:5
+			 
+		});		
+	});
+	
+			</script>
+		</div>
+	</div>
+	<div class="modelhead mt ">
+		<div class="h ">
+			友情链接
+		</div>
+		<div class="friendlinks ">
+			<a href="http://www.redder.com.cn/ " target="_blank ">深圳模特公司</a>
+			<a href="http://www.dymtw.com " target="_blank ">第一模特网</a>
+			<a href="http://www.bjmtv.org " target="_blank ">杭州模特经纪公司</a>
+			<a href="http://www.dsn027.com " target="_blank ">杭州模特网</a>
+			<a href="http://www.mt163.net " target="_blank ">杭州模特公司</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+<layout name="Public/index" />
+<link href="../Common/css/article.css" type="text/css" rel="stylesheet" />
+<div class="main ">
+    <div class="shownav mt6">
+        当前位置：<a href="/">首页</a> > 网站公告
+    </div>
+
+    <div class="detailinfo mt">
+        <div class="h">网站公告</div>
+        <div class="c">
+            <div class="zstart-aux">
+                <div class="zstart-cols">
+                    <div class="zstart-col-01">
+                        <div class="tab-content">
+
+                            <div class="newscon">
+                                <h1>{$notice.Title}</h1>
+
+
+
+
+                                <div class="connn" id="connn">
+                                    {$notice.Content}
+
+
+
+
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="zstart-col-04">
+
+
+
+
+                        <div class="wiget-title clearfix">
+                            <h2>最新文章</h2>
+                        </div>
+                        <div class="wiget-box">
+                            <include file="narticle" />
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

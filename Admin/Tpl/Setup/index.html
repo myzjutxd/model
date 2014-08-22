@@ -1,0 +1,95 @@
+<include file="Public/header"/>
+<body>
+    <table cellpadding="2" cellspacing="1" class="table_form">
+        <form action="./index" method="post">
+            <tr>
+                <th><strong>数据库地址</strong></th>
+                <td><input name="DB_HOST" type="text" value="{$config.db_host}"/></td>
+            </tr>
+            <tr>
+                <th><strong>数据库名称</strong></th>
+                <td><input name="DB_NAME" type="text" value="{$config.db_name}"/></td>
+            </tr>
+            <tr>
+                <th><strong>数据库用户名</strong></th>
+                <td><input name="DB_USER" type="text" value="{$config.db_user}"/></td>
+            </tr>
+            <tr>
+                <th><strong>数据库密码</strong></th>
+                <td><input name="DB_PWD" type="text" value="{$config.db_pwd}"/></td>
+            </tr>
+            <tr>
+                <th><strong>数据库端口</strong></th>
+                <td><input name="DB_PORT" type="text" value="{$config.db_port}"/></td>
+            </tr>
+            <tr>
+                <th><strong>服务地址</strong></th>
+                <td><input name="SERVER_URL" type="text" value="{$config.server_url}"/></td>
+            </tr>
+            <tr>
+                <th><strong>价格</strong></th>
+                <td><input name="PRICE" type="text" value="{$config.price}"/></td>
+            </tr>
+            <tr>
+                <th><strong>授权码</strong></th>
+                <td><input name="APP_TOK" type="text" value="{$config.app_tok}"/></td>
+            </tr>
+            <tr>
+            <th><strong>网站名称</strong></th>
+                <td>
+                    <input name="NAME" type="text" value="{$config.name}" >
+                </td>
+            </tr>
+            <tr>
+                <th><strong>网站标题</strong></th>
+                <td>
+                    <input name="TITLE" type="text" value="{$config.title}" >
+                </td>
+            </tr>
+            <tr>
+                <th><strong>备案号</strong></th>
+                <td>
+                    <input name="ICP" type="text" value="{$config.icp}" >
+                </td>
+            </tr>
+            <tr>
+                <th><strong>联系人</strong></th>
+                <td>
+                    <input name="PERSON" type="text" value="{$config.person}" >
+                </td>
+            </tr>
+            <tr>
+                <th><strong>电话</strong></th>
+                <td>
+                    <input name="PHONE" type="text" value="{$config.phone}" >
+                </td>
+            </tr>
+            <tr>
+                <th><strong>地址</strong></th>
+                <td>
+                    <input name="ADDRESS" type="text" value="{$config.address}" >
+                </td>
+            </tr>
+            <tr>
+                <th><strong>传真</strong></th>
+                <td>
+                    <input name="FAX" type="text" value="{$config.fax}" >
+                </td>
+            </tr>
+            <tr>
+                <th><strong>QQ</strong></th>
+                <td>
+                    <input name="QQ" type="text" value="{$config.qq}" >
+                </td>
+            </tr>
+            <tr>
+                <th><strong>EMAIL</strong></th>
+                <td>
+                    <input name="EMAIL" type="text" value="{$config.email}" >
+                </td>
+            </tr>
+            <tr>  <th></th><td><input type="submit" value="提交"></td></tr>
+        </form>
+    </table>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<include file="Public/header" />
+	<body>
+		<table cellpadding="2" cellspacing="1" class="table_form">
+			<form action="./save" method="post" name="myform" onsubmit="return Friendlink();">
+				<caption>
+					添加友情链接
+				</caption>
+                <input type="hidden" name="Id" value="{$data.Id}">
+				<tr>
+					<th><strong>链接名称</strong></th>
+					<td>
+					<input name="LinkName" type="text" id="LinkName" size="20" maxlength="150" value="{$data.LinkName}" />
+					<font color="red">*</font></td>
+				</tr>
+				<tr>
+					<th><strong>链接URL</strong></th>
+					<td>
+					<input name="LinkUrl" type="text" id="LinkUrl" value="{$data.LinkUrl}" size="50" maxlength="150" />
+					</td>
+				</tr>
+				<tr>
+					<th><strong>Logo地址</strong></th>
+					<td>
+					<div class="upload">
+						<input class="ke-input-text" type="text" id="url" name="LogoUrl" value="{$data.LogoUrl}" readonly="readonly" />
+						<input type="button" id="uploadButton" value="Upload" />
+					</div></td>
+				</tr>
+
+				<tr>
+					<th><strong>立即显示</strong></th>
+					<td><span class="tablerow">
+						<input name="IsShow" type="radio" value="1" checked="checked" />
+						是
+						<input type="radio" name="IsShow" value="0" />
+						否 </span></td>
+				</tr>
+				<tr>
+					<th><strong>链接描述</strong></th>
+					<td>					<textarea name="Description" rows="2" cols="20" id="description" class="inputtext" style="height:100px;width:300px;">{$data.Description}</textarea></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td>
+					<input type="submit" name="dosubmit" value=" 确定 ">
+					&nbsp;
+					<input type="reset" name="reset" value=" 清除 ">
+					&nbsp;
+					<input type="button" value="返回上一页" onclick="history.back()" />
+					
+					
+					</td>
+				</tr>
+			</form>
+		</table>
+
+        <link rel="stylesheet" href="../../Common/kindeditor/themes/default/default.css" />
+
+                <script charset="utf-8" src="../../Common/kindeditor/kindeditor-min.js"></script>
+
+        <script charset="utf-8" src="../../Common/kindeditor/lang/zh_CN.js"></script>
+
+        <script>
+
+            KindEditor.ready(function(K) {
+        var uploadbutton = K.uploadbutton({
+
+            button : K('#uploadButton')[0],
+
+            fieldName : 'imgFile',
+
+            url : '../../Common/kindeditor/php/upload_json.php?dir=banner',
+
+            afterUpload : function(data) {
+
+                if (data.error === 0) {
+
+                    var url = K.formatUrl(data.url, 'absolute');
+
+                    K('#url').val(url);
+
+                } else {
+
+                    alert(data.message);
+
+                }
+
+            },
+
+            afterError : function(str) {
+
+                alert('自定义错误信息: ' + str);
+
+            }
+
+        });
+
+        uploadbutton.fileBox.change(function(e) {
+
+            uploadbutton.submit();
+
+        });
+
+        });
+    </script>
+	</body>
+</html>

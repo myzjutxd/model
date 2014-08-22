@@ -1,0 +1,98 @@
+<include file="Public/header" />
+	<body>
+		<table cellpadding="2" cellspacing="1" class="table_form">
+			<form action="./save" method="post" name="myform" >
+				<caption>
+					添加帮助知识
+				</caption>
+				<tr>
+					<th><strong>帮助知识类别</strong></th>
+					<td>
+					<select name="ClassId" id="ClassId">
+						
+					<volist name="list" id="vo">	<option value="{$vo.Id}">{$vo.ClassName}</option></volist>
+						
+
+					</select><font color="red">*</font></td>
+				</tr>
+				<tr>
+					<th><strong>帮助知识标题</strong></th>
+					<td>
+					<input name="Title" type="text" id="Title" size="60" maxlength="255" value="{$data.Title}" />
+					<font color="red">*</font></td>
+				</tr>
+				<tr>
+					<th><strong>关键词</strong></th>
+					<td>
+					<input name="KeyWords" type="text" id="KeyWords" size="60" maxlength="255" value="{$data.KeyWords}" />
+					英文空格隔开 <font color="red">*</font></td>
+				</tr>
+
+
+
+				<tr>
+					<th><strong>相关参数</strong></th>
+					<td>
+					<input name="IsShow" type="checkbox" id="IsShow" title="选中则立即发布，否则前台不会立即显示，可以在列表中控制显示一栏来控制" value="{$data.IsShow}"  />
+					立即发布 </td>
+				</tr>
+				<tr>
+					<th><strong>帮助知识内容</strong></th>
+					<td><textarea name="Content" id="Content"  rows="6" style="width:98%;scroll:auto;">{$data.Content}</textarea>
+						
+						
+						</td>
+				</tr>
+				<tr>
+					<th></th>
+					<td>
+                        <input type="hidden" name="Id" value="{$data.Id}">
+					<input type="submit" name="dosubmit" value=" 确定 ">
+					&nbsp;
+
+					&nbsp;
+					<input type="button" value="返回上一页" onclick="history.back()" />
+					</td>
+				</tr>
+
+			</form>
+		</table>
+		<table width="80%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+        <link rel="stylesheet" href="../../Common/kindeditor/themes/default/default.css" />
+
+        <script charset="utf-8" src="../../Common/kindeditor/kindeditor-min.js"></script>
+
+        <script charset="utf-8" src="../../Common/kindeditor/lang/zh_CN.js"></script>
+
+        <script>
+
+            KindEditor.ready(function(K) {
+
+                var editor1 = K.create('textarea[name="Content"]', {
+
+                    cssPath : '../../Common/kindeditor/plugins/code/prettify.css',
+
+                    uploadJson : '../../Common/kindeditor/php/upload_json.php?dir=help',
+
+                    fileManagerJson : '../../Common/kindeditor/php/file_manager_json.php',
+
+                    allowFileManager : true,
+
+                    //当失去焦点时执行 this.sync();
+                afterBlur: function(){this.sync();
+
+
+
+                    }
+
+                });
+            });
+               </script>
+
+            </body>
+</html>
+

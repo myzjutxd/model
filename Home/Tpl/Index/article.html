@@ -1,0 +1,74 @@
+<layout name="Public/index" />
+<link href="./Common/css/article.css" type="text/css" rel="stylesheet" />
+<div class="main ">
+	<div class="shownav mt6">
+		{$locate}
+	</div>
+
+	<div class="detailinfo mt">
+		<div class="h">{$classname}</div>
+		<div class="c" style="padding: 10px 0">
+			<div class="zstart-aux">
+				<div class="zstart-cols">
+					<div class="zstart-col-01">
+						<div class="tab-content">
+
+<volist name="article" id="article">
+							<div class="zpost clearfix">
+                            
+								<div class="pic">
+									<a class="thumbnail" href="articleshow?id={$article.Id}"> <img
+										src="{$article.ImgUrl}"
+										alt="{$article.Title}" width="180">
+									</a>
+								</div>
+                               
+								<div class="zheader">
+									<div class="zcomment-number">
+										<span class="number"> <a href="articleshow?id={$article.Id}">{$article.ViewCount}</a>
+										</span> <span class="corner"></span>
+									</div>
+									<h2 class="ztitle yahei">
+										<a target="_blank" href="articleshow?id={$article.Id}" rel="external">{$article.Title}</a>
+									</h2>
+								</div>
+								<div class="zpost-detail ">
+									<p><?php
+                                    $a=$article["Content"];
+                                    $abstruct=strip_tags($a); 
+                                    echo mb_substr($abstruct,0,80,"UTF-8")."...";
+                                    ?></p>
+									<span class="zpost-info"> <span class="new_time"><i
+											class="icon-time"></i>{$article.UpdateTime}</span> | <span class="new_laiyuan"><i
+											class="icon-list-alt"></i>关键词：<a
+											href='article?key={$article.KeyWords}'>{$article.KeyWords}</a> </span>
+									</span>
+								</div>
+							</div>
+ </volist>
+							
+
+						</div>
+
+						<div class='page'></div>
+					</div>
+					<div class="zstart-col-04">
+
+
+
+
+						<div class="wiget-title clearfix">
+							<h2>最新文章</h2>
+						</div>
+						<div class="wiget-box">
+								<include file="narticle" />
+						</div>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

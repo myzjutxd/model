@@ -1,0 +1,70 @@
+<include file="Public/header" />
+	<body>
+		<table cellpadding="0" cellspacing="1" class="table_form">
+			<caption>
+				友情链接管理
+			</caption>
+			<tr>
+				<td width="80%"><a href="./edit">添加友情链接</a> | <a href="./index">友情链接列表</a>
+				
+			</tr>
+		</table>
+		<form method="post" action="./update">
+			<table cellpadding="0" cellspacing="1" class="table_list" id="table_list">
+				<caption>
+					友情链接 列表
+				</caption>
+				<thead>
+					<tr align="center">
+						<th width="4%"  style="cursor:pointer;">ID</th>
+						<th width="19%"  style="cursor:pointer;">链接名称</th>
+						<th width="35%"  style="cursor:pointer;">链接URL</th>
+						<th width="10%"  style="cursor:pointer;">Logo预览</th>
+						<th width="12%" style="cursor:pointer;">修改时间</th>
+						<th width="4%" style="cursor:pointer;">显示</th>
+						<th width="11%" style="cursor:pointer;">操作</th>
+					</tr>
+				</thead>
+				<volist name="list" id="vo">
+					<tr>
+						<td style="text-align:center">{$vo.Id}</td>
+						<td style="text-align:left">{$vo.LinkName}</td>
+						<td style="text-align:center"><a href="{$vo.LinkUrl}" target="_blank" title="{$vo.LinkName}">{$vo.LinkUrl}</a></td>
+						<td style="text-align:center"><a href="{$vo.LogoUrl}"><img src="../../Common/skin/icon/icon_image.gif" width="18" height="18" onMouseOver="MM_showHideLayers('imgLayer{$vo.Id}','','show')" onMouseOut="MM_showHideLayers('imgLayer{$vo.Id}','','hide')" /></a>
+						<div id="imgLayer{$vo.Id}" style="position:absolute; width:140px; height:40px; z-index:3; visibility: hidden" border="1">
+
+							<img src="{$vo.LogoUrl}" border="0" onload="setpicWH(this,140,40)">
+
+						</div></td>
+						<td style="text-align:center" title="添加时间:{$vo.UpdataTime}"> {$vo.UpdateTime}</td>
+						<td style="text-align:center"><a href="javascript:ChangeState({$vo.Id})"><img border=0 src='../../Common/skin/icon/icon_{$vo.show}.gif'  alt="Yes"></a></td>
+						<td style="text-align:center"><a href='./edit?Id={$vo.Id}' title="修改">修改</a> |
+						<input type="checkbox" name="ListId[]" id="ListId[]" value="{$vo.Id}" />
+						</td>
+					</tr>
+				</volist>
+
+			</table>
+
+			<table cellpadding="0" cellspacing="1" class="table_form" >
+				<tr>
+					<td width="23%"><strong>选择：</strong><a href="javascript:checkbox(1);" title="">全选</a> | <a href="javascript:checkbox(2);" title="取消">取消</a> | <a href="javascript:checkbox(3);" title="反选">反选</a></td>
+					<td><strong>操作：</strong>
+					<input type="radio" name="Action" id="Action" value="delete" />
+					批量删除
+					<input type="radio" name="Action" id="Action" value="update" />
+					批量更新
+					<select name="ChangeState" id="ChangeState">
+						<option value="1">批量显示</option>
+						<option value="0">批量取消显示</option>
+					</select></td>
+					<td width="9%"><label>
+						<input type="submit" name="Submit" id="Submit" value=" 执 行" onclick="return OperateEnt()" />
+					</label>
+					
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

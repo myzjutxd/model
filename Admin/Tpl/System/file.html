@@ -1,0 +1,27 @@
+<include file="Public/header" />
+        <body>
+        <link rel="stylesheet" href="../../Common/kindeditor/themes/default/default.css" />
+        <script src="../../Common/kindeditor/kindeditor.js"></script>
+        <script src="../../Common/kindeditor/lang/zh_CN.js"></script>
+        <script>
+            KindEditor.ready(function(K) {
+                var editor = K.editor({
+                    fileManagerJson : '../../Common/kindeditor/php/file_manager_json.php'
+                });
+                K('#filemanager').click(function() {
+                    editor.loadPlugin('filemanager', function() {
+                        editor.plugin.filemanagerDialog({
+                            viewType : 'VIEW',
+                            dirName : 'image',
+                            clickFn : function(url, title) {
+                                K('#url').val(url);
+                                editor.hideDialog();
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+        <input type="text" id="url" value="" /> <input type="button" id="filemanager" value="浏览服务器" />
+
+        </body>

@@ -1,0 +1,71 @@
+<layout name="Public/index" />
+<link rel="stylesheet" href="../Common/kindeditor/themes/default/default.css" />
+<div class="main">
+
+	<div class="mt6 user">
+		<include file="left" />
+
+		<div class="right">
+			<div class="h">
+				修改视频
+			</div>
+
+			<form name="myform" method="post" action="update?action=user">
+				<br>
+				<input type="hidden" value="{$info.id}" name="id">
+                                
+				<img width="670" style="cursor:pointer; display:none" onclick="window.open(this.src)" id="Pic1img" src="/">
+				<br>
+				
+
+				<br>
+				<br>
+				<div class="upload">
+					<input class="ke-input-text" type="text" id="url" value="" name="media" readonly="readonly" />
+					<input type="button" id="uploadButton" value="Upload" />
+				</div>
+                 
+				<input type="submit" name="Submit" class="regbtninput" value=" 确  定 ">
+                              
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+
+			</form>
+
+		</div>
+		<div class="clear"></div>
+
+	</div>
+
+</div>
+
+		<script src="../Common/kindeditor/kindeditor-min.js"></script>
+		<script>
+			KindEditor.ready(function(K) {
+				var uploadbutton = K.uploadbutton({
+					button : K('#uploadButton')[0],
+					fieldName : 'imgFile',
+					url : 'upload?type=media',
+					afterUpload : function(data) {
+						if (data.error === 0) {
+							//var url = K.formatUrl(data.url, 'absolute');
+							// K('#modelcard').attr("src","{$photourl}"+"/ModelCard/"+data.url);
+                            
+                            K('#url').val(data.url);
+                                                        //$("#modelcard").attr("src",url);
+						} else {
+							alert(data.message);
+						}
+					},
+					afterError : function(str) {
+						alert('自定义错误信息: ' + str);
+					}
+				});
+				uploadbutton.fileBox.change(function(e) {
+					uploadbutton.submit();
+				});
+			});
+		</script>

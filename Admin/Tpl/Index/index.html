@@ -1,0 +1,299 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>职业平面模特网_第一模特网旗下_杭州站</title>
+<meta name="keywords" content="平面模特,淘宝模特,淘女郎,淘女郎平台,第一模特网"/>
+<meta name="description" content="职业平面模特网_淘女郎高级定制,是一家专业为平面模特服务的模特平台，平台仅收录职业平面模特，欢迎职业平面模特和摄影机构、服装企业、淘宝店主入驻。"/>
+<link href="../Common/css/css.css" type="text/css" rel="stylesheet" />
+<link href="../Common/css/article.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../Common/js/jquery.min.js"></script>
+<script type="text/javascript" src="../Common/js/aimm.main.js"></script>
+<script type="text/javascript" src="../Common/js/slides.min.jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#slides').slides({
+		preload: true,
+		preloadImage: 'http://www.571mt.com/skins/images/loading.gif',
+		play: 2500,
+		pause: 2500,
+		slideSpeed: 600,
+		hoverPause: true
+	});
+});
+</script>
+</head>
+
+<body>
+<div class="main">
+	<div class="logo"><a href="/"><img src="../Common/images/logo.png" /></a></div>
+    <div class="toprrr">
+    <div class="top_r"><a href="http://www.dymtw.com" target="_blank">模特新闻</a> | <a  href='#' onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://mm.dymtw.com');">设为首页</a> | <a href="/login">会员登陆</a> | <a href="/reg">会员注册</a></div>
+    
+    <div class="shearch">
+        <form action="/search" method="post">
+        <div class="searchtxt"><input type="text" name="keyword" value="输入模特名字" onclick="if(this.value=='输入模特名字'){ this.value=''}"  onblur="if(this.value==''){this.value='输入模特名字'}" /></div>
+        <div class="searchbtn"><input type="submit"  value=" "  /></div>
+        </form>
+        
+        </div>
+      </div>
+    
+    <div class="clear"></div>
+    
+</div>
+
+<!-- dd menu -->
+<script type="text/javascript">
+<!--
+var timeout         = 500;
+var closetimer		= 0;
+var ddmenuitem      = 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose; 
+// -->
+</script>
+
+
+<div class="menu">
+    <div class="main">
+    	<ul id="sddm"><li><a href="/"  class='on'>网站首页</a><span></span></li>
+        <li><a href="./model" onmouseover="mopen('m1')" onmouseout="mclosetime()" >模特展示 ↓</a>
+        <div id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+		<volist name="model" id="vo">
+        <a href="./model?cid={$vo.Id}">{$vo.ClassName}</a>
+        </volist>
+		</div>
+        <span></span></li>
+        <li><a href="./search" onmouseover="mopen('m2')" onmouseout="mclosetime()" >高级搜索 ↓</a>
+         <div id="m2" onmouseover="mcancelclosetime()" onmouseout="mclosetime()" >
+		 
+   		<volist name="model" id="vo">
+        <a href="./search?cid={$vo.Id}">{$vo.ClassName}</a>
+        </volist>
+	
+		</div>
+        <span></span></li>
+        <li><a href="./article" onmouseover="mopen('m3')" onmouseout="mclosetime()" >模特学院 ↓</a>
+         <div id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+         
+            <volist name="news" id="vo">
+        	<a href="./article?cid={$vo.Id}">{$vo.ClassName}</a>
+        	</volist>
+             
+	 
+		</div>
+        
+        <span></span></li>
+        <li><a href="#">拼单平台</a>
+        <span></span></li>
+        <li><a href="#" target="_blank">摄影机构</a></li>
+        <span></span></li>
+        <li><a href="help?id=70" target="_blank">媒体报道</a></li>
+        
+        </ul>
+        
+        
+   
+        
+	</div>
+    
+       
+    
+</div>
+<div class="menuruur">
+
+
+    <div class="menulogiri"><a href="/login">登录</a></div>
+    <div class="linspan">|</div>
+    <div class="menulogin2"><a href="/reg">加入我们</a></div>
+ 
+</div>
+<link rel="stylesheet" href="../Common/css/ShowDialog.css" type="text/css" /> 
+<script src="../Common/js/ShowDialog.js"></script>
+
+
+<style>
+	.cityshot{ font-family:Arial,"微软雅黑";font-size:12px ;border:1px solid #999 ; padding: 12px; width:934px; margin:0 auto ;line-height:18px !important; border-top:2px solid #C00}
+	.cityshot span{ display:inline-block; margin:0 12px; }
+	.citysh_r{ float:right; width:880px; }
+	.citysh_l{ float:left; width:48px;  background:url(images/cityshot.jpg) no-repeat right 6px; font-weight:bold; color:#C00}
+</style>
+<div class="cityshot">
+<div class="citysh_l">
+热门<br>
+城市
+</div>
+<div class="citysh_r">
+    <span><a href="http://mm.dymtw.com" title="这里已经是杭州站"><u>杭州</u></a></span>|<span><a href="http://gz.dymtw.com" target="_blank" title="进入广州站看看">广州</a></span>|<span><a href="http://sh.dymtw.com" target="_blank" title="进入上海站看看">上海</a></span>|<span>北京</span>|<span>成都</span>|<span>深圳</span>|<span>厦门</span>|<span>南京</span>|<span>温州</span>|<span>宁波</span>|<span>武汉</span>|<span>重庆</span>|<span>大连</span>|<span>青岛</span>|<span>苏州</span>|<span>合肥</span>|<span>天津</span><br>
+    <span>长沙</span>|<span> 郑州</span>|<span>济南</span>|<span>西安</span>|<span>福州</span>|<span>昆明</span>|<span> 南宁</span>|<span>南昌</span>|<span>无锡</span>|<span>东莞</span>|<span>长春</span>|<span>沈阳</span>|<span>石家庄</span>|<span>哈尔滨</span>|<span>义乌</span> <span>更多>></span>
+</div>
+<div class="clear"></div>
+</div>
+{__CONTENT__}
+
+<div class="main">
+	<div class="webinfo mt">
+    	<div class="webn">
+        
+        
+			
+			<div class="s_1"></div>
+			<div class="s_con">
+				<div class="s_title">关于网站</div>
+				<div class="s_item">
+                
+				<a href="help?id=41">前言</a><br />
+ 
+				<a href="help?id=42">关于本平台</a><br />
+ 
+				<a href="help?id=43">关于第一模特网</a><br />
+ 
+				<a href="help?id=70">媒体报道</a><br />
+ 				  
+				</div>
+			
+			
+			</div> 
+			
+			
+			<div class="s_2"></div>
+			<div class="s_con">
+				<div class="s_title">会员注册</div>
+				<div class="s_item">
+                
+				<a href="help?id=49">模特注册</a><br />
+ 
+				<a href="help?id=51">机构注册</a><br />
+ 
+				<a href="help?id=50">粉丝团注册</a><br />
+ 				  
+				</div>
+			
+			
+			</div> 
+			
+			
+			<div class="s_3"></div>
+			<div class="s_con">
+				<div class="s_title">关于使用</div>
+				<div class="s_item">
+                
+				<a href="help?id=47">功能说明</a><br />
+ 
+				<a href="help?id=52">法律声明</a><br />
+ 
+				<a href="help?id=48">隐私条款</a><br />
+ 				  
+				</div>
+			
+			
+			</div> 
+			
+			
+			<div class="s_4"></div>
+			<div class="s_con">
+				<div class="s_title">关于合作</div>
+				<div class="s_item">
+                
+				<a href="help?id=45">资源合作</a><br />
+ 
+				<a href="help?id=46">连锁加盟</a><br />
+ 
+				<a href="help?id=44">资本合作</a><br />
+ 				  
+				</div>
+			
+			
+			</div> 
+			
+			
+			<div class="s_5"></div>
+			<div class="s_con">
+				<div class="s_title">联系我们</div>
+				<div class="s_item">
+                
+				<a href="help?id=69">加入我们</a><br />
+ 
+				<a href="help?id=53">联系方式</a><br />
+ 
+				<a href="help?id=54">客户咨询</a><br />
+ 				  
+				</div>
+			
+			
+			</div> 
+			
+        
+        
+      
+        </div>
+      
+      <div class="clear"></div>
+     
+    </div>
+
+
+</div>
+
+
+<!--<div class="ourlinks">
+	<div class=" main">
+    <a href="/">关于我们</a> | <a href="/">模特加盟</a> | <a href="/">机构入驻</a> | <a href="/">约片拍摄</a> | <a href="/">会员充值</a> | <a href="/">连锁加盟</a> | <a href="/">资源合作</a> | <a href="/">资本合作</a> | <a href="/">关注我们</a> | <a href="/">联系我们</a>
+    
+    </div>
+</div>-->
+<div class="foot">
+职业平面模特网——第一模特网倾情打造的国内首家职业平面模特平台，每位上线的模特都经过严格的考核<br />
+Copyright &copy; 2013 职业平面模特网|第一模特网 版权所有  浙ICP备12009898号-1<script src="http://s94.cnzz.com/stat.php?id=4100147&web_id=4100147&show=pic1" language="JavaScript"></script>
+
+<!--QQ客服-->
+<link href="../Common/css/kf.css?v=111" rel="stylesheet" type="text/css" />
+ 
+</div>
+
+
+
+
+
+</body>
+</html>

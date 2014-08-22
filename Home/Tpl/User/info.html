@@ -1,0 +1,370 @@
+<layout name="Public/index" />
+<div class="main">
+
+	<div class="mt6 user">
+	<include file="left" />
+		<div class="right">
+			<div class="h">
+				修改基本资料
+			</div>
+			<div class="con">
+				<form action="./update?action=user" method="post" name="myform"  onSubmit="return Validator.Validate(this,3)">
+
+					<table width="640" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="78" align="right">用 户 名：</td>
+							<td width="562">{$info.username}</td>
+						</tr>
+						<tr>
+							<td align="right"> 真实姓名：</td>
+							<td>
+							<input type="text" class="input" name="realName" value="{$info.realName}" />
+							</td>
+						</tr>
+
+						<tr>
+							<td align="right">性别：</td>
+							<td>
+                                                            <select  id="Sex" name="Sex">
+                                                                <option value="男" >男 </option>
+							
+                                                                <option value="女"> 女  </option>
+                                                            </select>
+                                                            </td>
+						</tr>
+
+						<tr >
+							<td align="right">生  日：</td>
+							<td>
+							<input type="text" class="input" name="birthday" value="{$info.birthday}"  onFocus="WdatePicker({isShowClear:false,readOnly:true,dateFmt:'yyyy-MM-dd'})" readonly="readonly" />
+							</td>
+						</tr>
+						<tr>
+							<td align="right">所在城市：</td>
+							<td><script type="text/javascript" src="../Common/js/city.js"></script>
+							<SELECT id="sort_one"  name="proid"  onChange="changelocation(document.myform.sort_one.options[document.myform.sort_one.selectedIndex].value)">
+
+								<option value="1">北京市</option>
+
+								<option value="2">天津市</option>
+
+								<option value="3">上海市</option>
+
+								<option value="4">重庆市</option>
+
+								<option value="5">黑龙江</option>
+
+								<option value="6">吉林省</option>
+
+								<option value="7">辽宁省</option>
+
+								<option value="8">青海省</option>
+
+								<option value="9">甘肃省</option>
+
+								<option value="10">陕西省</option>
+
+								<option value="11">西藏</option>
+
+								<option value="12">内蒙古</option>
+
+								<option value="13">新疆</option>
+
+								<option value="14">宁夏</option>
+
+								<option value="15">广西</option>
+
+								<option value="16">四川省</option>
+
+								<option value="17">贵州省</option>
+
+								<option value="18">云南省</option>
+
+								<option value="19">广东省</option>
+
+								<option value="20">福建省</option>
+
+								<option value="21">湖南省</option>
+
+								<option value="22">江西省</option>
+
+								<option value="23">湖北省</option>
+
+								<option value="24">浙江省</option>
+
+								<option value="25">江苏省</option>
+
+								<option value="26">河南省</option>
+
+								<option value="27">河北省</option>
+
+								<option value="28">山东省</option>
+
+								<option value="29">山西省</option>
+
+								<option value="30">海南省</option>
+
+								<option value="31">安徽省</option>
+
+							</select>
+							<SELECT id="sort_two"   dataType="Number" msg="请选择城市"  onChange="changelocation2(document.myform.sort_two.options[document.myform.sort_two.selectedIndex].value)"  name="cityId">
+								<option value="{$info.city}">选择城市</option>
+							</SELECT>
+							<SELECT id="sort_tree" name="AreaId"  dataType="Number" msg="请选择区域">
+								<option value="{$info.areaid}">选择区域</option>
+
+							</SELECT></td>
+						</tr>
+						<tr>
+							<td  align="right">联系地址： </td>
+							<td  >
+							<input id="Address" value="{$info.Address}" name="Address"  class="input"  />
+							</td>
+						</tr>
+
+						<tr>
+							<td align="right">艺 名：</td>
+							<td>
+							<input type="text" class="input" name="NickName" value="{$info.NickName}" />
+							</td>
+						</tr>
+						<tr>
+							<td align="right">类  别：</td>
+							<td>
+							<select name="ModelType" id="ModelType" value="$info.ModelType">
+								<option value='0'>请选择所属类别</option>
+
+								<option value="1">淘女郎VIP</option>
+								<option value="2">淘宝男模</option>
+								<option value="3">外籍女模</option>
+								<option value="4">外籍男模</option>
+								<option value="5">儿童模特</option>
+								<option value="6">大龄模特</option>
+														
+
+							</select></td>
+						</tr>
+
+						<tr>
+							<td align="right">血型：</td>
+							<td>
+							<select name="bloodtype" id="bloodtype">
+								<option value="A" >A</option><option value="B">B</option><option value="AB" >AB</option><option value="O" >O</option>
+							</select> 型</td>
+						</tr>
+
+						<tr>
+							<td align="right" height="80"  ></td>
+							<td>
+							<div style="height:100px; background:url(../Common/images/sabw.png) no-repeat; ">
+								<div style="height:50px;"></div>
+								<div>
+									<table width="508" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="105">
+											<input type="text" class="input m" name="height" value="{$info.height}" />
+											CM</td>
+											<td width="119">
+											<input type="text" class="input m" name="weight" value="{$info.weight}" />
+											KG</td>
+											<td width="114">
+											<input type="text" class="input m" name="BWH" value="{$info.BWH}" />
+											</td>
+
+											<td width="106">
+											<select name="ABC" id="ABC">
+												<option value="32A" >32A</option>
+												<option value="32B" >32B</option>
+												<option value="32C" >32C</option>
+												<option value="34A" >34A</option>
+												<option value="34B" >34B</option>
+												<option value="34C" >34C</option>
+												<option value="36A" >36A</option>
+												<option value="36B" >36B</option>
+												<option value="36C" >36C</option>
+												<option value="38A" >38A</option>
+												<option value="38B" >38B</option>
+												<option value="38C" >38C</option>
+											</select></td>
+											<td width="64">
+											<input name="shoeSize" class="input s" value="{$info.shoeSize}"  onkeyup='this.value=this.value.replace(/\D/gi,"")' />
+											码</td>
+										</tr>
+									</table>
+								</div>
+							</div></td>
+						</tr>
+
+						<tr>
+							<td align="right">拍摄价位：</td>
+							<td>内景：
+							<input type="text" class="input s"  onkeyup='this.value=this.value.replace(/\D/gi,"")' name="NeiUnitPrice" value="{$info.NeiUnitPrice}" />
+							元/件  外景：
+							<input type="text" class="input s"  onkeyup='this.value=this.value.replace(/\D/gi,"")' name="WaiUnitPrice" value="{$info.WaiUnitPrice}" />
+							元/件  精拍：
+							<input  onkeyup='this.value=this.value.replace(/\D/gi,"")' type="text" class="input s" name="DayPrice" value="{$info.DayPrice}" />
+							元/天（
+							<input type="text"  onkeyup='this.value=this.value.replace(/\D/gi,"")' class="input s" name="StartCount" value="{$info.StartCount}" />
+							件以内） 内衣：
+							<input type="text"  onkeyup='this.value=this.value.replace(/\D/gi,"")' class="input s" name="NeiyiUnitPrice" value="{$info.NeiyiUnitPrice}" />
+							元/件（0元表示不拍）</td>
+						</tr>
+
+						<tr>
+							<td align="right">风  格：</td>
+							<style>
+								.styles a {
+									display: inline-block;
+									background: #f3f3f3;
+									border: 1px solid #eeeeee;
+									padding: 0px 6px;
+									line-height: 22px;
+									margin: 2px 6px;
+									margin-left: 0
+								}
+								.styles .on {
+									background: #F60;
+									border: 1px solid #F00
+								}
+							</style>
+							<td class="styles"><a id="stylea24" href="javascript:addstyle(24)">童装</a><a id="stylea21" href="javascript:addstyle(21)">皮草</a><a id="stylea20" href="javascript:addstyle(20)">婚纱</a><a id="stylea19" href="javascript:addstyle(19)">阳光</a><a id="stylea18" href="javascript:addstyle(18)">商务装</a><a id="stylea1" href="javascript:addstyle(1)">欧美</a><a id="stylea2" href="javascript:addstyle(2)">韩版</a><a id="stylea3" href="javascript:addstyle(3)">日系</a><a id="stylea4" href="javascript:addstyle(4)">英伦</a><a id="stylea5" href="javascript:addstyle(5)">OL风</a><a id="stylea23" href="javascript:addstyle(23)">羽绒</a><a id="stylea22" href="javascript:addstyle(22)">中年</a><a id="stylea9" href="javascript:addstyle(9)">内衣</a><a id="stylea7" href="javascript:addstyle(7)">淑女</a>
+							<input class="input" name="styles" id="styles" type="hidden" value="" />
+							<script>
+								function addstyle(id) {
+									var myaobj = document.getElementById("stylea" + id);
+									var stylesobj = document.getElementById("styles");
+									if (stylesobj.value.indexOf("," + String(id) + ",") >= 0) {
+										stylesobj.value = stylesobj.value.replace("," + String(id) + ",", ",")
+										myaobj.className = "";
+									} else {
+										if (stylesobj.value == "")
+											stylesobj.value = ","
+										stylesobj.value = stylesobj.value + String(id) + ",";
+										myaobj.className = "on";
+									}
+
+								}
+								var str="{$info.styles}";
+								for(var i=0;i<100;i++)
+								{
+									if(str.indexOf("," + String(i) + ",")>=0)
+									{
+										addstyle(i);
+									}
+								}
+
+							</script></td>
+						</tr>
+
+						<tr>
+							<td align="right">产 品：</td>
+
+							<td class="styles" id="Product"><a id="ProductTypesa1" href="javascript:addProductType(1)">服饰</a><a id="ProductTypesa2" href="javascript:addProductType(2)">内衣</a><a id="ProductTypesa3" href="javascript:addProductType(3)">鞋帽</a><a id="ProductTypesa4" href="javascript:addProductType(4)">护肤</a><a id="ProductTypesa5" href="javascript:addProductType(5)">佩饰</a><a id="ProductTypesa6" href="javascript:addProductType(6)">彩妆</a>
+							<input class="input" name="ProductTypes" id="ProductTypes" type="hidden" value="" />
+							<script>
+								function addProductType(id) {
+									var myaobj = document.getElementById("ProductTypesa" + id);
+									var ProductTypesobj = document.getElementById("ProductTypes");
+									if (ProductTypesobj.value.indexOf("," + String(id) + ",") >= 0) {
+										ProductTypesobj.value = ProductTypesobj.value.replace("," + String(id) + ",", ",")
+										myaobj.className = "";
+									} else {
+										if (ProductTypesobj.value == "")
+											ProductTypesobj.value = ","
+										ProductTypesobj.value = ProductTypesobj.value + String(id) + ",";
+										myaobj.className = "on";
+									}
+
+								}
+								var str="{$info.ProductTypes}";
+								for(var i=0;i<100;i++)
+								{
+									if(str.indexOf("," + String(i) + ",")>=0)
+									{
+										addProductType(i);
+									}
+								}
+
+							</script></td>
+						</tr>
+
+						<tr>
+							<td align="right">电话号码：</td>
+							<td>
+							<input type="text" class="input" name="Phone" value="{$info.Phone}" />
+							</td>
+						</tr>
+						<tr>
+							<td align="right">旺旺：</td>
+							<td>
+							<input type="text" class="input" name="wangwang" value="{$info.wangwang}" />
+							</td>
+						</tr>
+						<tr>
+							<td align="right">QQ：</td>
+							<td>
+							<input type="text" class="input" name="QQ" value="{$info.QQ}" />
+							</td>
+						</tr>
+						<tr>
+							<td align="right">手机号码：</td>
+							<td>
+							<input type="text" class="input" name="Mobile" value="{$info.Mobile}" />
+							</td>
+						</tr>
+						<tr>
+							<td align="right">电子邮箱：</td>
+							<td>
+							<input type="text" class="input" name="email" value="{$info.email}" />
+							</td>
+						</tr>
+
+						<tr>
+							<td align="right"></td>
+							<td>
+							<input type="submit" class="regbtninput"  value="确定修改"/>
+							</td>
+						</tr>
+
+					</table>
+				</form>
+				<br />
+				<br />
+				<br />
+				<br />
+
+			</div>
+
+		</div>
+		<div class="clear"></div>
+
+	</div>
+
+</div>
+<!-- <div style="position: absolute; z-index: 19700; top: 390px; left: 594px; display: block;">
+<iframe style="width: 186px; height: 199px;" src="../Common/js/Calendar/My97DatePicker.htm" border="0" frameborder="0" scrolling="no"></iframe>
+</div> -->
+<script>
+	function selected(id, val) {
+		for (var i = 0; i < document.getElementById(id).options.length; i++) {
+			if (document.getElementById(id).options[i].value == val) {
+				document.getElementById(id).options[i].selected = true;
+				break;
+			}
+		}
+
+	}
+	function on(id,val){
+		
+	}
+	selected("sort_one", {$info.proid})
+	changelocation({$info.proid});
+	selected("sort_two", {$info.cityId})
+	changelocation2({$info.cityId});
+	selected("sort_tree", {$info.AreaId})
+	selected("ModelType",{$info.ModelType})
+	selected("bloodtype","{$info.bloodtype}")
+	selected("ABC","{$info.ABC}")
+        selected("Sex","{$info.Sex}")
+
+</script>

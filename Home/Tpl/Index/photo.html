@@ -1,0 +1,65 @@
+<layout name="Public/index" />
+<link href="./Common/css/show.css" type="text/css" rel="stylesheet" />
+
+<link href="./Common/css/comment.css" type="text/css" rel="stylesheet" />
+
+<script type="text/javascript" src="./Common/js/jquery.lightbox-0.5.js"></script>
+<link rel="stylesheet" type="text/css" href="./Common/css/jquery.lightbox-0.5.css" media="screen" />
+<div class="main">
+<!--    <div class="shownav mt6">当前位置：<a href="/mm/Index/index">首页</a> &gt; <a href="./model?cid=">淘女郎VIP</a> &gt; <a href="album.asp?userid=148">摄影作品</a></div>-->
+
+    <div class="detailinfo mt">
+        <div class="h">作品</div>
+        <div class="c">
+
+            <style>.item{  border:1px solid #EEE;float: left;display: inline;padding: 5px;margin: 8px 0px 0 10px;position: relative;}
+                .item img{border: none;}
+                .item .txt{ width:138px; overflow:hidden; float:left; height:22px; display:inline-block}
+                .item .txt2{ width:30px; overflow:hidden; float:right;display:inline-block}
+            </style>    
+            <div id="page">
+                <div id="main" style="position: relative; height: 678px;" class="masonry">	
+                    <volist name="plist" id="vo">
+                        <div class="item masonry-brick" style="width:200px;height: 319px;margin-top: 8px;margin-left: 10px">
+                        <a href="{$photourl}/photo/{$vo.Pic1}">
+                            <img width="198" src="{$photourl}/photo/{$vo.Pic1}_250x999.jpg"></a> 
+                        <span class="txt"></span>
+
+                    </div>
+                    </volist>
+
+
+
+
+
+
+                </div>
+            </div>
+
+
+
+            <script src="./Common/js/jquery.masonry.min.js"></script>
+            <script>
+                $(function() {
+                    var $container = $('#main');
+                    $container.imagesLoaded(function() {
+                        $container.masonry({
+                            itemSelector: '.item'
+                        });
+                    });
+                });
+            </script>
+
+            <script type="text/javascript">
+                $(function() {
+                    $('#page a').lightBox();
+                });
+            </script>         
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+</div>
+
+

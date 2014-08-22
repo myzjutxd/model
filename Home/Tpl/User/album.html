@@ -1,0 +1,51 @@
+<link href="../Common/css/photo.css" rel="stylesheet" />
+<layout name="Public/index" />
+<div class="main">
+	
+	<div class="mt6 user">
+	<include file="left" />	
+				<div class="right">
+					<div class="h">作品管理</div>
+					
+					
+					<volist id="vo" name="slist">
+					
+					<div class="mm-photo-list clearfix">
+						<div class="mm-photo-cell">
+							<p class="mm-photo-cell-top"></p>
+							<div class="mm-photo-cell-middle">
+								<p class="mm-fengmian clearfix" href="#">
+								
+									<volist name="vo['pic']" id="sub" key="k">
+									<img src="{$photourl}/photo/{$sub.Pic1}_250x999.jpg" />
+									</volist>
+								</p>
+								<h4><a href="./photolist?albumid={$vo.Id}" target="_blank">
+								{$vo.ClassName}作品集管理</a></h4>
+								<span class="mm-pic-number"></span><p class="mm-photo-date"><a href="photoedit?albumid={$vo.Id}">添加照片</a></p>
+							</div>
+							<p class="mm-photo-cell-bottom"></p>
+						</div>
+						
+					</div>
+					
+					</volist>
+					
+					
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+				</div>
+				
+				<div class="clear"></div>
+				<div style="height: 40px;"></div>
+				
+			</div>
+			
+		</div>

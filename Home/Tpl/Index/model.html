@@ -1,0 +1,174 @@
+<layout name="Public/index" />
+<link rel="stylesheet" type="text/css" href="./Common/css/show.css" />
+<link rel="stylesheet" type="text/css" href="./Common/css/comment.css" />
+<script src="./Common/js/jquery.lightbox-0.5.js" type="text/javascript"></script>
+<link media="screen" href="./Common/css/jquery.lightbox-0.5.css" type="text/css" rel="stylesheet" />
+
+<div class="main">
+
+	<div class="modelhead mt6">
+
+		<div class="h">
+
+			模特展示
+
+			<div class="more">
+
+				<volist name="model" id="vo">
+
+        <a href="./model?cid={$vo.Id}">{$vo.ClassName}</a>
+
+        &nbsp; | &nbsp;
+
+        </volist>
+
+				
+
+				
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<volist name="modellist" id="vo">
+
+		<div class="moka mt">
+
+			<div class="img" style="height:398px; overflow:hidden">
+
+				<a href="show?userid={$vo.id}" target="_blank"><img src="{$photourl}/ModelCard/{$vo.modelcardurl}" style="height: 398px; width: 760px;" /></a>
+
+			</div>
+
+			<div class="txt">
+
+				<div class="people">
+
+					<div class="pic" style="height:33px; overflow:hidden">
+
+						<a href="show?userid={$vo.id}" target="_blank"><img src="{$photourl}/photo/{$vo.headPiC}_120x999.jpg" width="26" style="max-height: 100%;" /></a>
+
+					</div>
+
+					<div class="name">
+
+						{$vo.NickName}
+
+					</div>
+
+					<div class="heart">
+
+						{$vo.viewcount}
+
+					</div>
+
+				</div>
+
+				<div class="style">
+
+					<div class="h">
+
+						风格
+
+					</div>
+
+                    <volist name="vo['style']" id="style" key="k">
+
+					<a href='photo?albumid={$style.Id}&userid={$vo.id}'>{$style.ClassName}</a>
+
+                    </volist>
+
+					
+
+				</div>
+
+				<div class="style">
+
+					<div class="h">
+
+						价格
+
+					</div>
+
+					<a>内景{$vo['NeiUnitPrice']*$price}元</a>
+
+					<a>外景{$vo['WaiUnitPrice']*$price}元</a>
+
+					<a>精拍{$vo['DayPrice']*$price}元/天 (10件以内)</a>
+
+					<a>内衣{$vo['NeiyiUnitPrice']*$price}元/件 (0表示不拍)</a>
+
+				</div>
+
+				<div class="regbtns">
+
+					<a onclick="ShowDialogo.show('模特预约', '500px', '680px', '', 'order?userid={$vo.id}', 'nowurl', '0',null,true)" href="javascript:void(0)" class="redbtn">立即预约</a>
+
+					<br />
+
+					<a href="album.asp?userid=273" class="redbtn">摄影作品</a>
+
+					<a onclick="ShowDialogo.show('查看档期', '500px', '680px', '', 'schedule?userid={$vo.id}', 'nowurl', '0',null,true)" href="javascript:void(0)" class="redbtn">查看档期</a>
+
+				</div>
+
+			</div>
+
+			<div class="clear">
+
+			</div>
+
+		</div>
+
+	</volist>
+
+	<div class="boxp10">
+
+   <div class="page">
+
+          
+
+            <a href="{$page1['first']['url']}" {$page1["first"]["class"]}><span>上一页</span></a>
+
+            <volist name='page' id='vo'>
+             <?php 
+            //$c=count($vo);
+            if($_GET["page"]==null)
+                $pagenum=1;
+            else
+                $pagenum=$_GET["page"];
+                if($i!=1&&$i!=2&&$i!=($c-1)&&$i!=($c))
+                {
+                    if($i<($pagenum-2)||$i>($pagenum+2))
+                    {
+                        echo "";
+                        continue;
+                    }
+                    if($i==($pagenum-2)||$i==($pagenum+2))
+                    {
+                        echo "···";
+                        continue;
+                     }
+                }
+      
+          //  $pagenum=$_GET("page");
+            
+                
+            
+            
+            
+            ?>
+
+                    <a <?php if($vo["url"]=='#') echo "class='on'" ?> href="{$vo.url}"><span><?php echo $i;?></span></a>
+
+            </volist>
+
+            <a   href="{$page1['last']['url']}" {$page1["last"]["class"]}><span>下一页</span></a>
+
+        </div>
+	</div>
+ 
+
+</div>

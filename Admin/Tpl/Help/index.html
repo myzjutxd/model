@@ -1,0 +1,64 @@
+<include file="Public/header" />
+	<body>
+		<table cellpadding="0" cellspacing="1" class="table_form">
+			<caption>
+				文章管理
+			</caption>
+			<tr>
+				<td width="80%"><a href="./edit">添加文章</a> | <a href="./index">文章列表</a>
+			</tr>
+		</table>
+		<form method="post" action="./update">
+			<table cellpadding="0" cellspacing="1" class="table_list" id="table_list">
+				<caption>
+					文章 列表
+				</caption>
+				<thead>
+					<tr align="center">
+						<th width="4%"  style="cursor:pointer;">ID</th>
+						<th width="10%"  style="cursor:pointer;">标题</th>
+
+
+						<th width="10%"  style="cursor:pointer;">类别</th>
+						<th width="12%" style="cursor:pointer;">修改时间</th>
+						<th width="4%" style="cursor:pointer;">显示</th>
+						<th width="4%" style="cursor:pointer;">首页</th>
+						<th width="11%" style="cursor:pointer;">操作</th>
+					</tr>
+				</thead>
+				<volist name="list" id="vo">
+					<tr>
+						<td style="text-align:center">{$vo.Id}</td>
+						<td style="text-align:left">{$vo.Title}</td>
+						<td style="text-align:center" title="类别:{$vo.ClassName}"> {$vo.ClassName}</td>
+						<td style="text-align:center" title="修改时间:{$vo.UpdataTime}"> {$vo.UpdateTime}</td>
+						<td style="text-align:center"><a href="javascript:ChangeState({$vo.Id})"><img border=0 src='../../Common/skin/icon/icon_{$vo.show}.gif'  alt="{$vo.show}"></a></td>
+						<td style="text-align:center"><a href="javascript:ChangeStateIndex({$vo.Id})"><img border=0 src='../../Common/skin/icon/icon_{$vo.index}.gif'  alt="{$vo.index}"></a></td>
+						<td style="text-align:center"><a href='./edit?Id={$vo.Id}' title="修改">修改</a> |<a href='./delete?Id={$vo.Id}' title="删除">删除</a> |
+						<input type="checkbox" name="ListId[]" id="ListId[]" value="{$vo.Id}" />
+						</td>
+					</tr>
+				</volist>
+
+			</table>
+
+			<table cellpadding="0" cellspacing="1" class="table_form" >
+				<tr>
+					<td width="23%"><strong>选择：</strong><a href="javascript:checkbox(1);" title="">全选</a> | <a href="javascript:checkbox(2);" title="取消">取消</a> | <a href="javascript:checkbox(3);" title="反选">反选</a></td>
+					<td><strong>操作：</strong>
+					<input type="radio" name="Action" id="Action" value="delete" />
+					批量删除
+					<input type="radio" name="Action" id="Action" value="update" />
+					批量更新
+					<select name="ChangeState" id="ChangeState">
+						<option value="1">批量显示</option>
+						<option value="0">批量取消显示</option>
+					</select></td>
+					<td width="9%"><label>
+						<input type="submit" name="Submit" id="Submit" value=" 执 行" onclick="return OperateEnt()" />
+					</label></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

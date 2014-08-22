@@ -1,0 +1,71 @@
+<layout name="Public/index" />
+<div class="main">
+
+	<div class="mt6 user">
+		<include file="left" />
+		
+		<div class="right">
+			<div class="h">
+				相片管理<a class="more" href="photoedit?albumid={$aid}">+ 添加照片</a>
+			</div>
+
+			<style>
+				.item {
+					border: 1px solid #EEE;
+					float: left;
+					display: inline;
+					padding: 5px;
+					margin: 8px 0px 0 10px;
+					position: relative;
+				}
+				.item img {
+					border: none;
+				}
+				.item .txt {
+					width: 138px;
+					overflow: hidden;
+					float: left;
+					height: 22px;
+					display: inline-block
+				}
+				.item .txt2 {
+					width: 30px;
+					overflow: hidden;
+					float: right;
+					display: inline-block
+				}
+			</style>
+			<div id="page">
+				<div id="main" style="position: relative; height: 2186px;" class="masonry">
+					<volist name="plist" id="vo">
+					<div class="item masonry-brick" style="position: absolute; top: 0px; left: 0px;">
+						<a href="update?action=photo&photoid={$vo.Id}&albumid={$aid}"> <img width="198" src="{$photourl}/photo/{$vo.Pic1}_250x999.jpg"></a>
+						<span class="txt"></span>
+						<span class="txt2"><a href="photoedit?photoid={$vo.Id}&albumid={$aid}">修改</a></span>
+						<span class="txt2"><a onclick="return confirm('删除无法恢复，确认删除?')" href="photo?action=delete&photoid={$vo.Id}">删除</a></span>
+					</div>
+</volist>
+					
+
+				</div>
+			</div>
+
+			<script src="../Common/js/jquery-1.7.1.min.js"></script>
+			<script src="../Common/js/jquery.masonry.min.js"></script>
+			<script>
+				$(function() {
+					var $container = $('#main');
+					$container.imagesLoaded(function() {
+						$container.masonry({
+							itemSelector : '.item'
+						});
+					});
+				});
+			</script>
+
+		</div>
+		<div class="clear"></div>
+
+	</div>
+
+</div>

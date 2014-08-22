@@ -1,0 +1,1 @@
+<?phpclass TypeAction extends BaseAction{    public function index()    {        $this->display();    }}

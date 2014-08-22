@@ -1,0 +1,39 @@
+<include file="Public/header" />
+	<body>
+		<table cellpadding="0" cellspacing="1" class="table_form">
+			<caption>
+				客服设置
+			</caption>
+			<tr>
+				<td><a href='./edit' >添加客服</a> | <a href="./index">管理客服</a></td>
+			</tr>
+		</table>
+		<table cellpadding="0" cellspacing="1" class="table_list">
+			<caption>
+				客服
+			</caption>
+			<tr>
+				<th width="5%">ID</th>
+				<th width="18%">客服名称</th>
+				<th width="47%">联系方式</th>
+				
+				<th width="5%">状态</th>
+				<th width="19%">管理操作</th>
+			</tr>
+			<volist name="list" id="vo">
+				<tr>
+					<td style="text-align:center">{$vo.Id}</td>
+					<td style="text-align:center">{$vo.ClassName}  </td>
+					<td align="left" title=""></td>
+					<td style="text-align:center"><a href="javascript:ChangeState({$vo.Id})"><img border=0 src='../../Common/skin/icon/icon_{$vo.show}.gif'  alt="Yes"></a></td>
+					<td style="text-align:center"><a href='./edit?Id={$vo.Id}' title="修改">修改</a> | <a href='./delete?Id={$vo.Id}' title="删除">删除</a></td>
+				</tr>
+			</volist>
+
+		</table>
+
+		<link href="../Common/JsScript/MyAlert/MyAlert.css" rel="stylesheet" type="text/css">
+		<script type="text/javaScript" src="../Common/JsScript/MyAlert/MyAlert.js"></script>
+
+	</body>
+</html>

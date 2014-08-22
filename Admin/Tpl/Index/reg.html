@@ -1,0 +1,119 @@
+<layout name="Public/index" />
+<div class="main">
+   <div class="shearctop regg mt6">
+<div  class="h">会员注册</div>
+   	<div class="reg">
+    	<form action="userreg" method="post" name="userform" id="userform"  onSubmit="return Validator.Validate(this,3)">
+    <table width="645" border="0" cellspacing="0" cellpadding="0">
+     <tr>
+    <td width="82" height="36" align="right">注册类型：</td>
+    <td colspan="3" align="left"><select name="UserType" onchange="changetype(this.value)" ><option value="1">模特注册</option><option value="2">企业注册</option></select>  <span class="red">*</span> </td>
+    </tr>
+    
+  <tr>
+    <td width="82" height="36" align="right">用 户 名：</td>
+    <td colspan="3" align="left"> <input name="username" type="text"  id="username" value="" maxlength="20" dataType="Custom" regexp="^[\w\u0391-\uFFE5]{2,}$" msg="用户名不少于2个字符，只能由中文、英文字母a-z、数字0-9、下划线组成" class="input" />    <span class="red">*</span> </td>
+    </tr>
+  <tr>
+    <td height="36" align="right">密 码：</td>
+    <td colspan="3" align="left">  <input name="Password" dataType="Custom" regexp="^[\w]{6,}$"  msg="不少于6个字符，且区分大小写" class="input" type="password" id="Password"  />      <span class="red">*</span> </td>
+    </tr>
+  <tr>
+    <td height="36" align="right">确认密码：</td>
+    <td colspan="3" align="left"> <input name="Repeat" id="Repeat" msg="两次输入的密码不一致" dataType="Repeat"   to="Password"  type="password" class="input">      <span class="red">*</span></td>
+    </tr>
+  <tr>
+    <td height="36" align="right">电子邮箱：</td>
+    <td colspan="3" align="left"> <input name="email" type="text" class="input" id="txt_Email" value="" size="30" Datatype="Email" msg="邮箱格式不正确">      <span class="red">*</span></td>
+    </tr>
+    
+          <tr>
+		    <td height="36" width="82"  align="right">联系方式：</td>
+		    <td colspan="3" align="left"> <input type="text" class="input"  name="mobile"     dataType="Mobile"     msg="填写正确的手机号码(13888888888)"     /> <span class="red">*</span></td>
+		    </tr>
+		   <tr>    
+    <tr>
+		    <td height="36" width="82"  align="right">QQ：</td>
+		    <td colspan="3" align="left"> <input type="text" class="input"  name="QQ"     dataType="Number"     msg="填写正确的QQ号码"     /> <span class="red">*</span></td>
+		    </tr>
+		   <tr>    
+    
+    
+  <tr>
+    <td height="36" align="right"><span id="names">真实姓名</span>：</td>
+    <td colspan="3" align="left"> <input type="text" class="input"  msg="请输入正确的姓名"  name="realName"  dataType="Custom" regexp="^[a-zA-Z\ \u4E00-\u9FA5]{2,20}$"  />      <span class="red">*</span></td>
+    </tr>
+  </table>
+  <div id="typeuserhtml" style=" text-align:left"></div>
+  
+    
+  
+  
+ <script>
+   
+   function changetype(val){
+	   var html='<table  width="645" border="0" cellspacing="0" cellpadding="0" >';
+	   
+   	if(val==1){
+		html=html+'  <tr>';
+		html=html+'    <td height="36" width="82"  align="right">生 日：</td>';
+		html=html+'    <td colspan="3" align="left"> <input type="text" class="input" name="birthday"  onFocus="WdatePicker({isShowClear:false,readOnly:true,dateFmt:\'yyyy-MM-dd\'})" readonly="readonly"/></td>';
+		html=html+'  </tr>';
+		document.getElementById("names").innerHTML="真实姓名"
+	
+	}else{
+		
+		document.getElementById("names").innerHTML="公司负责人"
+		html=html+'  <tr>';
+		html=html+'    <td height="36" width="82"  align="right">公司名称：</td>';
+		html=html+'    <td colspan="3" align="left"> <input type="text" class="input"  name="CompanyName"  dataType="Custom" regexp="^.+$" value=""  msg="请填写公司名称"    /> <span class="red">*</span></td>';
+		html=html+'    </tr>';
+		html=html+'   <tr>';
+
+
+	 
+		
+		
+		html=html+'  <tr>';
+		html=html+'    <td height="36" width="82"  align="right">人数：</td>';
+		html=html+'    <td colspan="3" align="left"> <input type="text" class="input"  name="EmployeeNum"  dataType="Number"  msg="请填写公司人数"    /> <span class="red">*</span></td>';
+		html=html+'    </tr>';
+		html=html+'   <tr>';
+
+
+		html=html+'  <tr>';
+		html=html+'    <td height="36" width="82"  align="right">主营：</td>';
+		html=html+'    <td colspan="3" align="left"> <input type="text" class="input"  name="Business"       /></td>';
+		html=html+'    </tr>';
+		html=html+'   <tr>';
+
+
+    
+	}
+	html=html+'</table>';
+	document.getElementById("typeuserhtml").innerHTML=html;
+   
+   }
+   changetype(1)
+   </script>
+<div class="line"></div>
+<div class="regpage">
+	<input type="checkbox" checked="checked" /> 同意注册《条款》
+</div>
+<div class="regbtn">
+	
+	<input type="submit" class="regbtninput"  value="立即注册"/>
+
+
+</div>
+</form>
+    
+    </div>
+    	 
+         
+         
+    </div>
+    	
+ 
+
+</div>

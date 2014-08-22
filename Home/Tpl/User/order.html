@@ -1,0 +1,53 @@
+<layout name="Public/index" />
+<div class="main">
+
+	<div class="mt6 user">
+		<include file="left" />
+		<div class="right">
+			<div class="h">
+				管理订单
+			</div>
+			<div class="con">
+
+				<IF condition="$d=0">
+					对不起，目前还没有数据！
+				</IF>
+				<table width="640" cellspacing="1" cellpadding="0" border="0" style="background:#eee">
+					<tbody>
+						<tr class="h">
+							<td width="50" align="center">序号</td>
+							<td width="75" align="center">拍摄时间</td>
+							<td width="83" align="center">拍摄产品</td>
+							<td width="68" align="center">拍摄类型</td>
+							<td width="68" align="center">拍摄数量</td>
+							<td width="115" align="center">添加时间</td>
+							<td width="50" align="center">状态</td>
+							<td width="60" align="center">操作</td>
+						</tr>
+						<volist name="olist" id="vo">
+                                                    <tr>
+							<td width="50" align="center">{$vo.id}</td>
+							<td width="75" align="center">{$vo.OrderDay}</td>
+							<td width="83" align="center">{$vo.product}</td>
+							<td width="68" align="center">{$vo.PhotoType}</td>
+							<td width="68" align="center">{$vo.PhotoCount}</td>
+							<td width="115" align="center">{$vo.Addtime}</td>
+							<td width="50" align="center">{$vo.State}</td>
+							<td width="60" align="center"><a>同意</a>/<a>拒绝</a></td>
+                                                    </tr>
+						</volist>
+					</tbody>
+				</table>
+				<br>
+				<div class="page"></div>
+				<br>
+				<br>
+
+			</div>
+
+		</div>
+		<div class="clear"></div>
+
+	</div>
+
+</div>

@@ -1,0 +1,225 @@
+<include file="Public/header" />
+    <script src="../../Common/JsScript/pages.js" type="text/javaScript"></script>
+
+
+
+        <script type="text/javascript">
+            function ChangeState(id,fun) {
+                try {
+                    location.href = "./action?id=" + id+"&type="+fun;
+                } catch(e) {
+                    alert(e);
+                }
+            }
+        </script>
+
+<body>
+<table cellspacing="1" cellpadding="0" class="table_form">
+    <caption>
+        用户管理
+    </caption>
+    <tbody><tr>
+        <td width="80%">
+
+            <a href="#">用户管理列表</a>
+            |
+
+            <a onclick="ShowObj('Quickview');" href="#">快速查看</a>
+            |
+            <a onclick="ShowObj('Search');" href="#">搜索信息</a>
+
+        </td>
+        <td width="20%" style="text-align:center">
+
+
+
+        </td>
+    </tr>
+    <tr style="display:none;" id="Quickview">
+        <td colspan="2">
+            <span class="c_orange"><strong>快速查看：</strong></span>
+            <select onchange="PressClassId(this.value);" name="usertype">
+                <option value="">按类型快速查看</option>
+                <option value="1">模特会员</option>
+                <option value="2">企业会员</option>
+
+            </select>
+            |
+
+            <select onchange="PressmodeltypeId(this.value);" id="QuickviewmodeltypeId" name="QuickviewmodeltypeId">
+                <option value="0">按模特类别快速查看</option>
+                <option value="1">淘女郎VIP</option>
+                <option value="2">淘宝男模</option>
+                <option value="3">外籍女模</option>
+                <option value="4">外籍男模</option>
+                <option value="5">儿童模特</option>
+                <option value="6">大龄模特</option>
+
+            </select>
+
+
+            |
+
+            <select onchange="PressDateTime(this.value);" id="QuickviewDateTime" name="QuickviewDateTime">
+                <option value="0">按添加时间快速查看</option>
+                <option value="ToDay">今天的用户管理</option>
+                <option value="YesterDay">昨天的用户管理</option>
+                <option value="ThisMonth">本月的用户管理</option>
+                <option value="LastMonth">上个月的用户管理</option>
+                <option value="LastMonthAgo">上个月以前的</option>
+            </select>
+            |
+            <a href="./index?check=1">签约</a>
+            </select>
+
+
+        </td>
+    </tr>
+    <tr style="display:none;" id="Search">
+        <td colspan="2">
+            <span class="c_orange"><strong>搜索信息：</strong></span>
+            <input type="text" size="30" id="KeyWord" name="KeyWord" class="input_blur">
+            查询方式:
+            <select id="SearchClass" name="SearchClass">
+                <option selected="selected" value="">请选择</option>
+                <option value="username">用户名</option>
+                <option value="phone">电话</option>
+                <option value="NickName">昵称</option>
+                <option value="realName" >姓名</option>
+            </select>
+
+            <input type="button" onclick="return SearchAction()" value="查 找" id="btnSearch" name="btnSearch" class="button_style">
+            <input type="button" onclick="SearchAll()" value="全 部" id="btnShowAll" name="btnShowAll" class="button_style">
+        </td>
+    </tr>
+    </tbody></table>
+<form action="delete" method="post">
+<table cellspacing="1" cellpadding="0" id="table_list" class="table_list">
+<caption>
+    用户管理 列表
+</caption>
+<thead>
+<tr align="center" class="">
+    <th width="4%" style="cursor:pointer;">ID</th>
+    <th width="4%" style="cursor:pointer;">用户名</th>
+    <th width="7%" style="cursor:pointer;">用户类型</th>
+    <th width="9%" style="cursor:pointer;">email</th>
+    <th width="7%" style="cursor:pointer;">模特类型</th>
+    <th width="12%" style="cursor:pointer;">电话</th>
+    <th width="4%" style="cursor:pointer;">审核</th>
+    <th width="5%" style="cursor:pointer;">首页</th>
+    <th width="4%" style="cursor:pointer;">推荐</th>
+    <th width="4%" style="cursor:pointer;">视频</th>
+    <th width="4%" style="cursor:pointer;">签约</th>
+    <th width="4%" style="cursor:pointer;">模卡</th>
+    <th width="16%" style="cursor:pointer;">操作</th>
+</tr>
+</thead>
+
+<tbody>
+<volist id="vo" name="list">
+<tr class="">
+
+    <td style="text-align:center">{$vo.id}</td>
+    <td style="text-align:center">
+       {$vo.username}</td>
+
+    <td style="text-align:center">
+        {$vo.usertypename}
+
+
+    </td> <td style="text-align:center">
+    {$vo.email}</td> <td style="text-align:center">   {$vo.modeltypename}
+</td> <td style="text-align:center">                      {$vo.Mobile}
+</td>
+    
+    <td style="text-align:center">
+
+        <a href="javascript:ChangeState('{$vo.id}','IsShow')"><img border="0" alt="{$vo.IsShow}" src="../../Common/skin/icon/icon_{$vo.IsShow}.gif"></a>
+    </td>
+    <td style="text-align:center">
+
+        <a href="javascript:ChangeState('{$vo.id}','IsTop')"><img border="0" alt="{$vo.IsTop}" src="../../Common/skin/icon/icon_{$vo.IsTop}.gif"></a>
+    </td>
+    <td style="text-align:center">
+
+        <a href="javascript:ChangeState('{$vo.id}','IStuijian')"><img border="0" alt="{$vo.IStuijian}" src="../../Common/skin/icon/icon_{$vo.IStuijian}.gif"></a>
+    </td>
+   <td style="text-align:center">
+
+        <a href="javascript:ChangeState('{$vo.id}','IsMediaTop')"><img border="0" alt="{$vo.IsMediaTop}" src="../../Common/skin/icon/icon_{$vo.IsMediaTop}.gif"></a>
+    </td>
+       <td style="text-align:center">
+
+        <a href="javascript:ChangeState('{$vo.id}','check')"><img border="0" alt="{$vo.check}" src="../../Common/skin/icon/icon_{$vo.check}.gif"></a>
+    </td>
+    <td style="text-align:center">
+
+        <a href="javascript:ChangeState('{$vo.id}','Ismodelcardshow')"><img border="0" alt="{$vo.check}" src="../../Common/skin/icon/icon_{$vo.Ismodelcardshow}.gif"></a>
+    </td>
+    <td style="text-align:center">
+        <a target="_blank" href="./adminlogin?userid={$vo.id}">登录前台</a> |
+
+        <a href="#">充值</a> |
+
+
+
+        |
+        <input type="checkbox" value="{$vo.id}" id="ListId[]" name="ListId" class="checkbox_style"></td>
+</tr>
+</volist>
+
+
+</tbody></table>
+
+<table cellspacing="1" cellpadding="0" class="table_form">
+    <tbody><tr>
+        <td width="23%">
+            <strong>选择：</strong>
+            <a title="" href="javascript:checkbox(1);">全选</a>
+            | <a title="取消" href="javascript:checkbox(2);">取消</a>
+            | <a title="反选" href="javascript:checkbox(3);">反选</a></td>
+        <td>
+            <strong>操作：</strong>
+            <input type="radio" value="RGVsZXRl" id="Action" name="Action" class="radio_style"> 批量删除
+
+        </td>
+        <td width="9%">
+            <label>
+                <input type="submit" onclick="return OperateEnt()" value=" 执 行" id="Submit" name="Submit" class="button_style">
+            </label>
+            <input type="hidden" value="delete" id="Url" name="Url">
+        </td>
+    </tr>
+    </tbody></table>
+<div id="pages">
+    总数:{$num}条
+    <a href="./index?{$pagefirst}">首 页</a>
+    <a href="./index?{$pageprev}">上一页</a>
+    <a href="./index?{$pagenext}">下一页</a>
+    <a href="./index?{$pagelast}">末  页</a>
+    页次：<strong><font color="red">{$page}</font>/{$c}</strong>
+
+</div>
+
+
+<br>
+<table width="80%" cellspacing="0" cellpadding="0" border="0">
+    <tbody><tr>
+        <td>&nbsp;</td>
+    </tr>
+    </tbody></table>
+<br>
+</form>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        ShowObj('Quickview');
+        $("#QuickviewClassId").val('2');
+
+    });
+</script>
+</body></html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title></title>
+    <link href="../../Common/skin/system.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javaScript" src="../../Common/JsScript/jquery.min.js"></script>
+    <script type="text/javaScript" src="../../Common/JsScript/css.js"></script>
+    <script type="text/javaScript" src="../../Common/JsScript/common.js"></script>
+    <script type="text/javaScript" src="../../Common/JsScript/admin.js"></script>
+
+
+    <link rel="stylesheet" href="../../Common/JsScript/thicbox/thickbox.css" type="text/css" media="screen" />
+    <script type="text/javaScript" src="../../Common/JsScript/thicbox/thickbox.js"></script>
+    <script type="text/javascript" src="../../Common/JsScript/tablesorter.js"></script>
+
+    <script type="text/javascript" for="ListId" event="onclick">
+        tr_bgcolor(this);
+    </script>
+
+    <script type="text/javascript">
+        function ChangeState(id) {
+            try {
+                location.href = "./IsShow?Id=" + id;
+            } catch(e) {
+                alert(e);
+            }
+        }
+        function ChangeStateIndex(id) {
+            try {
+                location.href = "./IsTop?Id=" + id;
+            } catch(e) {
+                alert(e);
+            }
+        }
+    </script>
+
+</head>

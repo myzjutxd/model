@@ -1,0 +1,295 @@
+<layout name="Public/index" />
+
+<div class="main">
+
+    <div class="shearctop mt6">
+
+        <ul>
+
+
+
+
+
+            <li><strong>模特类型： </strong>
+
+            <volist name="model" id="vo">
+
+                <a href="./search?{$vo.url}" {$vo.class}>{$vo.ClassName}</a>    
+
+            </volist>
+
+            </li> 
+
+            <li><strong>风&nbsp;&nbsp;&nbsp;&nbsp;格： </strong>
+
+            <volist name="style" id="vo">
+
+                <a href="./search?{$vo.url}" {$vo.class}>{$vo.ClassName}</a>    
+
+            </volist>
+
+            </li>
+
+            <li><strong>拍摄产品： </strong>
+
+            <volist name="product" id="vo">
+
+                <a href="./search?{$vo.url}" {$vo.class}>{$vo.ClassName}</a>    
+
+            </volist>
+
+
+
+            </li>
+
+            <li><form method="get" action="search"><strong>拍片次数： </strong>
+
+                    <a href="./search?{$order[0]['url']}" {$order[0]["class"]}>0-5次</a>
+
+                    <a href="./search?{$order[1]['url']}" {$order[1]["class"]}>6-10次</a>
+
+                    <a href="./search?{$order[2]['url']}" {$order[2]["class"]}>11-50次</a>
+
+                    <a href="./search?{$order[3]['url']}" {$order[3]["class"]}>大于50次</a>
+
+                    <input type="text" value="{$OrderCountStart}" name="OrderCountStart" class="txts"/> -
+
+                    <input type="text" value="{$OrderCountEnd}" name="OrderCountEnd" class="txts" /> 
+
+                    <input type="submit" value="确定" class="btnsrch" /></form></li>
+
+            <li><form method="get" action="search?{$height['geturl']}"><strong>模特身高： </strong>
+
+                    <a href="./search?{$height[0]['url']}" {$height[0]['class']}>160以下</a>
+
+                    <a href="./search?{$height[1]['url']}" {$height[1]['class']}>160-165</a>
+
+                    <a href="./search?{$height[2]['url']}" {$height[2]['class']}>165-170</a>
+
+                    <a href="./search?{$height[3]['url']}" {$height[3]['class']}>170-175</a>
+
+                    <a href="./search?{$height[4]['url']}" {$height[4]['class']}>175以上</a>
+
+                    <input type="text" value="" name="heightStart" class="txts"> - 
+
+                    <input type="text" value="" name="heightEnd" class="txts"> 
+
+                    <input type="submit" value="确定" class="btnsrch"/></form></li>
+
+            <li><form method="get" action="search?{$price[0]['geturl']}"><strong>内景（元/件）： </strong>
+
+                    <a href="./search?{$price[0][0]['url']}" {$price[0][0]["class"]}>30以下</a>
+
+                    <a href="./search?{$price[0][1]['url']}" {$price[0][1]["class"]}>30-50</a>
+
+                    <a href="./search?{$price[0][2]['url']}" {$price[0][2]["class"]}>50-80</a>
+
+                    <a href="./search?{$price[0][3]['url']}" {$price[0][3]["class"]}>80-100</a>
+
+                    <a href="./search?{$price[0][4]['url']}" {$price[0][4]["class"]}>100-120</a>
+
+                    <a href="./search?{$price[0][5]['url']}" {$price[0][5]["class"]}>120以上</a>
+
+                    <input type="text" value="" name="NPriceStart" class="txts"/>
+
+                    - <input type="text" value="" name="NPriceEnd" class="txts"/> 
+
+                    <input type="submit" value="确定" class="btnsrch"/></form></li>
+
+            <li><form method="get" action="search?{$price[1]['geturl']}"><strong>外景（元/件）： </strong>
+
+                    <a href="./search?{$price[1][0]['url']}" {$price[1][0]["class"]}>30以下</a>
+
+                    <a href="./search?{$price[1][1]['url']}" {$price[1][1]["class"]}>30-50</a>
+
+                    <a href="./search?{$price[1][2]['url']}" {$price[1][2]["class"]}>50-80</a>
+
+                    <a href="./search?{$price[1][3]['url']}" {$price[1][3]["class"]}>80-100</a>
+
+                    <a href="./search?{$price[1][4]['url']}" {$price[1][4]["class"]}>100-120</a>
+
+                    <a href="./search?{$price[1][5]['url']}" {$price[1][5]["class"]}>120以上</a>
+
+                    <input type="text" value="" name="WPriceStart" class="txts"/> - 
+
+                    <input type="text" value="" name="WPriceEnd" class="txts"/> 
+
+                    <input type="submit" value="确定" class="btnsrch"/></form></li> 
+
+
+
+
+
+            <li><form method="get" action="search?{$price[2]['geturl']}"><strong>内衣（元/件）： </strong>
+
+                    <a href="./search?{$price[2][0]['url']}" {$price[2][0]["class"]}>30以下</a>
+
+                    <a href="./search?{$price[2][1]['url']}" {$price[2][1]["class"]}>30-50</a>
+
+                    <a href="./search?{$price[2][2]['url']}" {$price[2][2]["class"]}>50-80</a>
+
+                    <a href="./search?{$price[2][3]['url']}" {$price[2][3]["class"]}>80-100</a>
+
+                    <a href="./search?{$price[2][4]['url']}" {$price[2][4]["class"]}>100-120</a>
+
+                    <a href="./search?{$price[2][5]['url']}" {$price[2][5]["class"]}>120以上</a>
+
+                    <input type="text" value="" name="NYPriceStart" class="txts"/> - 
+
+                    <input type="text" value="" name="NYPriceEnd" class="txts"/> 
+
+                    <input type="submit" value="确定" class="btnsrch"/></form></li>
+
+            <li><form method="get" action="search?{$price[3]['geturl']}"><strong>精拍（元/天）： </strong>
+
+                    <a href="./search?{$price[3][0]['url']}" {$price[3][0]["class"]}>1000以下</a>
+
+                    <a href="./search?{$price[3][1]['url']}" {$price[3][1]["class"]}>1000-2000</a>
+
+                    <a href="./search?{$price[3][2]['url']}" {$price[3][2]["class"]}>2000-3000</a>
+
+                    <a href="./search?{$price[3][3]['url']}" {$price[3][3]["class"]}>3000-4000</a>
+
+                    <a href="./search?{$price[3][4]['url']}" {$price[3][4]["class"]}>4000-5000</a>
+
+                    <a href="./search?{$price[3][5]['url']}" {$price[3][5]["class"]}>5000以上</a>
+
+                    <input type="text" value="" name="DPriceStart" class="txts"/> 
+
+                    - <input type="text" value="" name="DPriceEnd" class="txts"/>
+
+                    <input type="submit" value="确定" class="btnsrch"/></form></li>
+
+        </ul>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="searchtitle mt"><p><strong>搜索结果： </strong>共找到 <font>{$count}</font> 项</p>
+        <a class="{$orderby[0]['class']}" href="./search?{$orderby[0]['url']}">签约次数</a>
+        <a class="{$orderby[1]['class']}" href="./search?{$orderby[1]['url']}">拍片价格</a>
+        <a class="{$orderby[2]['class']}" href="./search?{$orderby[2]['url']}">人气数</a>
+        <a class="{$orderby[3]['class']}" href="./search?{$orderby[3]['url']}">默认</a>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="searchbox">
+
+        <ul>
+
+            <volist name='ulist' id='vo'>
+
+            <?php if ($i % 5 == 0) {
+    echo "<li class=r5>";
+} else {
+    echo "<li>";
+} ?>    
+
+            
+
+                <div style="height:214px; overflow:hidden" class="img">
+
+                    <a target="_blank" href="./show?userid={$vo.id}"><img width="174" src="{$photourl}/photo/{$vo.headPiC}"></a>
+
+                </div>
+
+                <div class="txt">{$vo.NickName}&nbsp;&nbsp;{$vo.height}CM </div>
+
+                <div class="info">签约数:{$vo.OrderCount} 次<br>
+
+                    内景:<font>{$vo['NeiUnitPrice']*$pprice}</font>元/件
+                    外景:<font>{$vo['WaiUnitPrice']*$pprice}</font>元/件<br>
+
+                    精拍:<font>{$vo['DayPrice']*$pprice}</font>元/天
+                    ({$vo.StartCount}件以内)</div>
+
+            </li>
+
+            </volist> 
+
+
+
+            
+
+            <div class="clear"></div>
+
+
+
+        </ul>
+
+
+
+    </div> 
+
+    <div class="boxp10">	
+
+        <div class="page">
+
+          
+
+            <a href="{$page1['first']['url']}" {$page1["first"]["class"]}><span>上一页</span></a>
+
+            <volist name='page' id='vo'>
+            <?php
+//$c=count($vo);
+if ($_GET["page"] == null)
+    $pagenum = 1;
+else
+    $pagenum = $_GET["page"];
+if ($i != 1 && $i != 2 && $i != ($c) && $i != ($c-1)) {
+    if ($i < ($pagenum - 2) || $i > ($pagenum + 2)) {
+        echo "";
+        continue;
+    }
+    if ($i == ($pagenum - 2) || $i == ($pagenum + 2)) {
+        echo "···";
+        continue;
+    }
+}
+
+//  $pagenum=$_GET("page");
+
+
+
+
+
+
+?>
+
+                    <a <?php if ($vo["url"] == '#')
+    echo "class='on'" ?>  href="{$vo.url}"><span><?php echo
+$i; ?></span></a>
+
+            </volist>
+
+            <a  href="{$page1['last']['url']}" {$page1["last"]["class"]}><span>下一页</span></a>
+
+        </div>
+
+    </div>
+
+</div>

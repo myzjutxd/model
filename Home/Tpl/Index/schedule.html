@@ -1,0 +1,115 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+		<title>预约</title>
+		<link type="text/css" rel="stylesheet" href="./Common/css/new-calendar.css?v=2">
+		<script type="text/javascript" src="./Common/js/calendar1/jsc.js"></script>
+		<script type="text/javascript" src="./Common/js/calendar1/buy-calendar.js"></script>
+		<script src="./Common/js/jquery.min.js" type="text/javascript"></script>
+
+		<link type="text/css" href="./Common/css/ShowDialog.css" rel="stylesheet">
+		<script src="./Common/js/ShowDialog.js"></script>
+
+		<style>
+			.clear {
+				clear: both;
+				height: 0;
+				overflow: hidden
+			}
+			.range {
+				width: 100%;
+				display: block;
+				color: #900;
+				font-weight: bold;
+				padding: 10px;
+				text-align: center
+			}
+			.range a {
+				color: #900;
+			}
+			#companylist li {
+				border-top: 1px solid #cecece;
+				height: 28px;
+				line-height: 28px;
+				padding: 0 6px;
+			}
+
+		</style>
+		<style type="text/css">
+			object, embed {
+				-webkit-animation-duration: .001s;
+				-webkit-animation-name: playerInserted;
+				-ms-animation-duration: .001s;
+				-ms-animation-name: playerInserted;
+				-o-animation-duration: .001s;
+				-o-animation-name: playerInserted;
+				animation-duration: .001s;
+				animation-name: playerInserted;
+			}@-webkit-keyframes playerInserted{
+			from {
+				opacity: 0.99;
+			}
+			to {
+				opacity: 1;
+			}}@-ms-keyframes
+			playerInserted {from{
+				opacity: 0.99;
+			}
+			to {
+				opacity: 1;
+			}}@-o-keyframes
+			playerInserted {from{
+				opacity: 0.99;
+			}
+			to {
+				opacity: 1;
+			}}@keyframes
+			playerInserted {from{
+				opacity: 0.99;
+			}
+			to {
+				opacity: 1;
+			}}
+		</style>
+	</head>
+
+	<body>
+		<input type="hidden" value="{$id}" id="userid" name="userid">
+
+		<div style="margin:12px 20px;">
+			<div class="calendar-area">
+				<div class="calendar-wrapper">
+					<label c_type="calendar"></label>
+                    <span id='cal' c_monthctrl='1' c_autoshow='1' c_width='100%' c_type='calendar' c_ondatechg='daily_select_date' c_day='{$today}' c_today='{$today}' c_gray='' c_curs='' c_cure='' c_caltype='p'></span>
+				</div>
+			</div>
+			<div class="calendar-desc">
+				<ul>
+					<!-- <li onclick="ShowDialogo.show('模特预约', '520px', '700px', '', '/order?userid={$id}', 'nowurl', '0',null,true)" class="calendar-intro order">
+						在线预约
+					</li> -->
+
+					<li class="calendar-intro buyed">
+						未预约
+					</li>
+					<li class="calendar-intro availble">
+						已被预约
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div style="margin:12px 20px;" id="companylist">
+			
+		</div>
+
+		<script language="javascript"> 
+			var userid = {$id};
+
+			//var usetimelist2 = '';
+		</script>
+		<script language="javascript" src="./Common/js/order.js"></script>
+
+	</body>
+</html>

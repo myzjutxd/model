@@ -1,0 +1,90 @@
+<layout name="Public/index" />
+<div class="main">
+	<div class="modelhead mt6">
+		<div class="h">
+			模特展示
+			<div class="more">
+				<a href="model?cid=1">淘女郎VIP</a>
+				&nbsp; | &nbsp;
+				<a href="model?cid=2">淘宝男模</a>
+				&nbsp; | &nbsp;
+				<a href="model?cid=3">外籍女模</a>
+				&nbsp; | &nbsp;
+				<a href="model?cid=4">外籍男模</a>
+				&nbsp; | &nbsp;
+				<a href="model?cid=5">儿童模特</a>
+				&nbsp; | &nbsp;
+				<a href="model?cid=6">大龄模特</a>
+			</div>
+		</div>
+	</div>
+	<volist name="modellist" id="vo">
+		<div class="moka mt">
+			<div class="img" style="height:398px; overflow:hidden">
+				<a href="show?userid={$vo.id}" target="_blank"><img src="../Common/{$vo.modelcardurl}" /></a>
+			</div>
+			<div class="txt">
+				<div class="people">
+					<div class="pic" style="height:33px; overflow:hidden">
+						<a href="show?userid={$vo.id}" target="_blank"><img src="../Common/{$vo.headPiC}_120x999.jpg" width="26" /></a>
+					</div>
+					<div class="name">
+						{$vo.NickName}
+					</div>
+					<div class="heart">
+						{$vo.viewcount}
+					</div>
+				</div>
+				<div class="style">
+					<div class="h">
+						风格
+					</div>
+                    <volist name="vo['style']" id="style" key="k">
+					<a href='album?cid={$style.ProClass}&userid={$vo.id}'>{$style.ClassName}</a>
+                    </volist>
+					
+				</div>
+				<div class="style">
+					<div class="h">
+						价格
+					</div>
+					<a>内景{$vo.NeiUnitPrice}元</a>
+					<a>外景{$vo.WaiUnitPrice}元</a>
+					<a>精拍{$vo.DayPrice}元/天 (10件以内)</a>
+					<a>内衣{$vo.NeiyaPrice}元/件 (0表示不拍)</a>
+				</div>
+				<div class="regbtns">
+					<a onclick="ShowDialogo.show('模特预约', '500px', '680px', '', 'order?userid={$vo.id}', 'nowurl', '0',null,true)" href="javascript:void(0)" class="redbtn">立即预约</a>
+					<br />
+					<a href="album.asp?userid=273" class="redbtn">摄影作品</a>
+					<a onclick="ShowDialogo.show('查看档期', '500px', '680px', '', 'schedule?userid={$vo.id}', 'nowurl', '0',null,true)" href="javascript:void(0)" class="redbtn">查看档期</a>
+				</div>
+			</div>
+			<div class="clear">
+			</div>
+		</div>
+	</volist>
+	<div class="boxp10">
+		<div class='page'>
+			<strong class='nolink'>
+				<span>
+					上一页
+				</span>
+			</strong>
+			<strong>
+				<span>
+					1
+				</span>
+			</strong>
+			<a href='/model.asp?PageNo=2'><span>2</span></a>
+			<a href='/model.asp?PageNo=3'><span>3</span></a>
+			<a href='/model.asp?PageNo=4'><span>4</span></a>
+			<span class='ellipsis'>
+				...
+			</span>
+			<a href='/model.asp?PageNo=18'><span>18</span></a>
+			<a href='/model.asp?PageNo=19'><span>19</span></a>
+			<a href='/model.asp?PageNo=2'><span>下一页</span></a>
+		</div>
+	</div>
+</div>

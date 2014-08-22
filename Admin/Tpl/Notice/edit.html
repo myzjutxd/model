@@ -1,0 +1,50 @@
+<include file="Public/header" />
+	<body>
+		<table cellpadding="2" cellspacing="1" class="table_form">
+			<form action="./save" method="post" name="myform" >
+				<caption>
+					添加公告
+				</caption>
+				<tr>
+					<th><strong>标题</strong></th>
+					<td>
+					<input name="Title" type="text" id="Title" size="20" maxlength="150" value="{$data.Title}"  />
+					<font color="red">*</font></td>
+				</tr>
+				<tr>
+					<th><strong>相关参数</strong></th>
+					<td><span class="tablerow">
+						<input name="IsShow" type="checkbox" value="true" checked="checked" />
+						立即发布
+						<input type="checkbox" name="IsTop" value="true" />
+						首页 </span></td>
+				</tr>
+				<tr>
+					<th><strong>公告内容</strong></th>
+					<td>					<textarea name="Content" rows="2" cols="20" id="description" class="inputtext" style="height:200px;width:600px;">{$data.Content}</textarea></td>
+				</tr>
+				<tr>
+					<th><input type="hidden" name="Id" value="{$data.Id}"></th>
+					<td>
+					<input type="submit" name="dosubmit" value=" 确定 ">
+					&nbsp;
+
+					&nbsp;
+					<input type="button" value="返回上一页" onclick="history.back()" />
+					
+					
+					</td>
+				</tr>
+			</form>
+		</table>
+        <link rel="stylesheet" href="../../Common/kindeditor/themes/default/default.css" />
+
+        <script charset="utf-8" src="../../Common/kindeditor/kindeditor-min.js"></script>
+
+        <script charset="utf-8" src="../../Common/kindeditor/lang/zh_CN.js"></script>
+
+
+
+
+            </body>
+</html>

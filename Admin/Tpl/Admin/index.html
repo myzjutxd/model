@@ -1,0 +1,56 @@
+<include file="Public/header" />
+<body>
+<table cellspacing="1" cellpadding="0" class="table_form">
+    <caption>
+        管理员设置
+    </caption>
+    <tbody><tr>
+        <td><a href="Add.asp">添加管理员</a> | <a href="Default.asp">管理员列表</a> | <a href="EditPwd.asp">修改密码</a></td>
+    </tr>
+    </tbody></table>
+<form action="?mod=phpcms&amp;file=admin&amp;action=update" method="post">
+    <table cellspacing="1" cellpadding="0" class="table_list">
+        <caption>管理员 列表</caption>
+        <tbody><tr align="center" class="">
+            <th width="5%">ID</th>
+            <th width="13%">用户名</th>
+            <th width="18%">所属角色</th>
+            <th width="14%">姓名</th>
+            <th width="20%">联系电话</th>
+            <th width="12%">添加时间</th>
+            <th width="8%">锁定状态</th>
+            <th width="10%">管理操作</th>
+        </tr>
+        <volist id="vo" name="admin">
+        <tr class="">
+            <td style="text-align:center">{$vo.id}</td>
+            <td style="text-align:center">{$vo.username}</td>
+            <td style="text-align:center">超级管理员</td>
+            <td style="text-align:center">{$vo.realname}</td>
+            <td style="text-align:center">{$vo.tel}</td>
+            <td style="text-align:center">{$vo.lastlogintime}</td>
+            <td style="text-align:center">
+                <a href="./islocked?id={$vo.id}">
+                <img border="0" alt="{$vo.islocked}" src="../../Common/skin/icon/icon_{$vo.islocked}.gif">
+                 </a>
+            </td>
+            <td>
+
+
+                <a title="修改" href="edit?id={$vo.id}">修改</a>
+
+                |
+
+                <a title="删除" href="delete?id={$vo.id}">删除</a>
+
+            </td>
+        </tr>
+        </volist>
+
+
+        </tbody></table>
+</form>
+
+
+
+</body></html>

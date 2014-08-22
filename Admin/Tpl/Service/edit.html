@@ -1,0 +1,41 @@
+<include file="Public/header" />
+<body>
+<table cellpadding="2" cellspacing="1" class="table_form">
+<form action="./save" method="post" name="myform" onsubmit="return ClsssCheck();">
+    <caption>
+    编辑客服
+    </caption>
+	<tr>
+	  <th><strong>客服名称</strong></th>
+	  <td><input name="ClassName" type="text" id="ClassName" size="20" maxlength="50" value="{$data.ClassName}" />
+        <font color="red">*</font></td>
+  </tr>
+	<tr> 
+      <th><strong>QQ</strong></th>
+      <td><input name="Description"  id="description"  value="{$data.Description}" /></td>
+    </tr>
+	<tr>
+      <th><strong>立即发布</strong></th>
+      <td><span class="tablerow">
+        <input name="IsShow" type="radio" value="1" checked="checked" />
+是
+<input type="radio" name="IsShow" value="0" />
+否 </span></td>
+    </tr>
+	 <tr>
+    <th>排序</th> 
+    <td><input type="text" name="SortId" value="{$data.SortId}"></td>
+
+   </tr>
+    <tr> 
+      <th><input type="hidden" name="Id" value="{$data.Id}" /></th>
+      <td><input type="submit" name="dosubmit" value=" 确定 "> 
+        &nbsp; <input type="reset" name="reset" value=" 清除 ">
+		&nbsp; <input type="button" value="返回上一页" onclick="history.back()" />
+	 
+      </td>
+    </tr>
+	</form>
+</table>
+</body>
+</html>

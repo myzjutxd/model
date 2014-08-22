@@ -1,0 +1,160 @@
+<include file="Public/header" />
+	<body>
+		<table cellpadding="2" cellspacing="1" class="table_form">
+			<form action="./save" method="post" name="myform" onsubmit="return News();">
+                <input type="hidden" name="Id"   value="{$data.Id}"/>
+				<caption>
+					添加模特知识
+				</caption>
+				<tr>
+					<th><strong>模特知识类别</strong></th>
+					<td>
+					<select name="ClassId" id="ClassId">
+						
+					<volist name="list" id="vo">	<option value="{$vo.Id}">{$vo.ClassName}</option></volist>
+						
+
+					</select><font color="red">*</font></td>
+				</tr>
+				<tr>
+					<th><strong>模特知识标题</strong></th>
+					<td>
+					<input name="Title" type="text" id="Title" size="60" maxlength="255" value="{$data.Title}" />
+					<font color="red">*</font></td>
+				</tr>
+				<tr>
+					<th><strong>关键词</strong></th>
+					<td>
+					<input name="KeyWords" type="text" id="KeyWords" size="60" maxlength="255" value="{$data.KeyWords}" />
+					英文空格隔开 <font color="red">*</font></td>
+				</tr>
+
+				<tr>
+					<th><strong>来源</strong></th>
+					<td>
+					<input name="From" type="text" id="From" size="60" maxlength="255" value="{$data.From}" />
+					<font color="red">*</font></td>
+				</tr>
+				<tr>
+					<th><strong>编辑作者</strong></th>
+					<td>
+					<input name="Editor" type="text" id="Editor" size="60" maxlength="255" value="{$data.Editor}" />
+					<font color="red">*</font></td>
+				</tr>
+				<tr>
+					<th><strong>摘要</strong></th>
+					<td>					<textarea name="CuteCon" cols="60" rows="3" id="CuteCon">{$data.CuteCon}</textarea><font color="red">*</font></td>
+				</tr>
+
+				<tr>
+					<th><strong>相关参数</strong></th>
+					<td>
+					<input name="IsShow" type="checkbox" id="IsShow" title="选中则立即发布，否则前台不会立即显示，可以在列表中控制显示一栏来控制" value="{$data.IsShow}" />
+					立即发布 </td>
+				</tr>
+				<tr>
+					<th><strong>模特知识图片</strong></th>
+					<td>
+					<div class="upload">
+						<input class="ke-input-text" type="text" id="url" name="ImgUrl" value="{$data.ImgUrl}" readonly="readonly" />
+						<input type="button" id="uploadButton" value="Upload" />
+					</div></td>
+				</tr>
+				
+
+				
+				<tr>
+					<th><strong>模特知识内容</strong></th>
+					<td><textarea name="Content" id="Content"  rows="6" style="width:98%;scroll:auto;height: 300px" >{$data.Content}</textarea>
+						
+						
+						</td>
+				</tr>
+				<tr>
+					<th></th>
+					<td>
+					<input type="submit" name="dosubmit" value=" 确定 ">
+					&nbsp;
+
+					&nbsp;
+					<input type="button" value="返回上一页" onclick="history.back()" />
+					</td>
+				</tr>
+
+			</form>
+		</table>
+		<table width="80%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+        <link rel="stylesheet" href="../../Common/kindeditor/themes/default/default.css" />
+
+        <script charset="utf-8" src="../../Common/kindeditor/kindeditor-min.js"></script>
+
+        <script charset="utf-8" src="../../Common/kindeditor/lang/zh_CN.js"></script>
+
+        <script>
+
+            KindEditor.ready(function(K) {
+
+                var editor1 = K.create('textarea[name="Content"]', {
+
+                    cssPath : '../../Common/kindeditor/plugins/code/prettify.css',
+
+                    uploadJson : '../../Common/kindeditor/php/upload_json.php',
+
+                    fileManagerJson : '../../Common/kindeditor/php/file_manager_json.php',
+
+                    allowFileManager : true,
+
+                    afterBlur: function(){this.sync();}
+                });
+
+                //prettyPrint();
+                var uploadbutton = K.uploadbutton({
+
+                    button : K('#uploadButton')[0],
+
+                    fieldName : 'imgFile',
+
+                    url : '../../Common/kindeditor/php/upload_json.php?dir=news',
+
+                    afterUpload : function(data) {
+
+                        if (data.error === 0) {
+
+                            var url = K.formatUrl(data.url, 'absolute');
+
+                            K('#url').val(url);
+
+                        } else {
+
+                            alert(data.message);
+
+                        }
+
+                    },
+
+                    afterError : function(str) {
+
+                        alert('自定义错误信息: ' + str);
+
+                    }
+
+                });
+
+                uploadbutton.fileBox.change(function(e) {
+
+                    uploadbutton.submit();
+
+                });
+
+            });
+
+
+
+        </script>
+	</body>
+</html>
+
